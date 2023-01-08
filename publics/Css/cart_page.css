@@ -1,0 +1,42 @@
+.main {
+    min-height: 100vh;
+    padding: 50px 0px;
+    color: black;
+}
+
+.main table {
+    width: 100%;
+}
+
+.main table {
+    text-align: center;
+}
+
+.main table a {
+    text-decoration: none;
+}
+
+.main table td img {
+    border-radius: 10px;
+}
+
+.main table button {
+    border: 0;
+    background-color: transparent;
+}
+
+.main a {
+    text-decoration: none;
+}
+
+.main button {
+    border: 0;
+    background-color: transparent;
+    float: right;
+    margin: 25px 0px;
+    padding: 5px 15px;
+    border-radius: 50px;
+}
+
+
+/* End main */

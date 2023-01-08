@@ -1,0 +1,9 @@
+.statement table {
+    width: 100%;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.statement table thead {
+    text-decoration: dashed;
+}

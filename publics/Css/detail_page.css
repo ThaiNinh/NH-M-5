@@ -1,0 +1,123 @@
+.detail_page .nav ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.detail_page .nav ul li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.detail_page .nav ul li a {
+    color: gray;
+    text-decoration: none;
+}
+
+.detail_page .nav ul p {
+    padding: 0px 5px;
+    margin: 0;
+    color: gray;
+}
+
+.detail_page .content .product {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.detail_page .content .product .desc_product {
+    padding-left: 25px;
+}
+
+.detail_page .content .product .desc_product .name_product {
+    text-decoration: overline;
+}
+
+.detail_page .content .product .desc_product .price_product {
+    padding: 0;
+    margin: 0;
+}
+
+.detail_page .content .product .desc_product .size {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.detail_page .content .product .desc_product .size .item_size {
+    padding: 0 10px 0px 0px;
+    margin: 0;
+}
+
+.detail_page .content .product .desc_product .size .item_size input {
+    margin-right: 2px;
+}
+
+.detail_page .content .product .desc_product .form p {
+    padding: 10px 0px;
+    margin: 0;
+    font-weight: 700;
+}
+
+.detail_page .content .product .desc_product .count input {
+    outline: none;
+    width: 60px;
+    height: 25px;
+    text-align: center;
+    border-radius: 3px;
+    border: none;
+    margin: 0px;
+    background-color: rgba(255, 255, 255, 0.37);
+    box-shadow: 1px 1px 5px #2C415D;
+}
+
+.detail_page .content .product .desc_product .count input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+.list_button {
+    padding: 20px 0px;
+}
+
+.list_button button {
+    padding: 5px 15px;
+    border: none;
+    margin-right: 10px;
+    font-size: 14px;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.37);
+    box-shadow: 1px 1px 5px #2C415D;
+}
+
+@media (max-width: 768px) {
+    .detail_page .content .product .desc_product {
+        padding: 20px 0px 0px 0px;
+    }
+}
+
+.list_product {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.list_product .item_product {
+    padding: 5px;
+}
+
+.list_product .item_product img {
+    border-radius: 7px;
+}
+
+.list_product .item_product a {
+    color: black;
+    text-decoration: none;
+    padding: 5px 0px 0px 0px;
+}
