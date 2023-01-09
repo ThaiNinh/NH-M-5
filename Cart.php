@@ -1,6 +1,7 @@
 <?php
-require_once "../Config/Connectdb.php";
-require_once "../Config/LinkAll.php";
+require_once ("./header.php");
+require_once "./Config/Connectdb.php";
+require_once "./Config/LinkAll.php";
 
 $id_user = $_GET['user'];
 
@@ -29,7 +30,7 @@ foreach($data_cart as $item => $value){
 </head>
 
 <body>
-    <div class="main container">
+    <div class="main container" style="padding-top: 250px;">
         <table>
             <thead>
                 <th class="col-1">Hình ảnh</th>
