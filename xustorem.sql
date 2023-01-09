@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th1 08, 2023 lúc 07:26 PM
--- Phiên bản máy phục vụ: 10.4.27-MariaDB
--- Phiên bản PHP: 8.1.12
+-- Thời gian đã tạo: Th1 09, 2023 lúc 07:56 PM
+-- Phiên bản máy phục vụ: 10.4.25-MariaDB
+-- Phiên bản PHP: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,7 +34,7 @@ CREATE TABLE `tbl_baiviet` (
   `ngaydang` datetime NOT NULL,
   `anh` varchar(200) NOT NULL,
   `dmtin_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -47,7 +47,7 @@ CREATE TABLE `tbl_binhluan` (
   `nguoidung_id` int(11) NOT NULL,
   `noidung_bl` varchar(200) NOT NULL,
   `ngay_bl` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -61,7 +61,7 @@ CREATE TABLE `tbl_cthoadon` (
   `soluong` int(11) NOT NULL,
   `thanhtien` float NOT NULL,
   `hinhanh` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Đang đổ dữ liệu cho bảng `tbl_cthoadon`
@@ -85,7 +85,7 @@ CREATE TABLE `tbl_ctthanhtoan` (
   `nguoidung_id` int(11) NOT NULL,
   `hoadon_id` int(11) NOT NULL,
   `tinhtrang_tt` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Đang đổ dữ liệu cho bảng `tbl_ctthanhtoan`
@@ -104,7 +104,7 @@ INSERT INTO `tbl_ctthanhtoan` (`thanhtoan_id`, `nguoidung_id`, `hoadon_id`, `tin
 CREATE TABLE `tbl_detail_san_pham` (
   `id_sp` int(11) NOT NULL,
   `id_size` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Đang đổ dữ liệu cho bảng `tbl_detail_san_pham`
@@ -113,7 +113,9 @@ CREATE TABLE `tbl_detail_san_pham` (
 INSERT INTO `tbl_detail_san_pham` (`id_sp`, `id_size`) VALUES
 (1, 1),
 (1, 2),
-(1, 3);
+(1, 3),
+(2, 1),
+(2, 2);
 
 -- --------------------------------------------------------
 
@@ -124,7 +126,7 @@ INSERT INTO `tbl_detail_san_pham` (`id_sp`, `id_size`) VALUES
 CREATE TABLE `tbl_dmtin` (
   `dmtin_id` int(11) NOT NULL,
   `tendm` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -138,7 +140,7 @@ CREATE TABLE `tbl_giaohang` (
   `giacuoc` float NOT NULL,
   `tinhtrang_gh` varchar(200) NOT NULL,
   `nguoidung_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Đang đổ dữ liệu cho bảng `tbl_giaohang`
@@ -157,18 +159,17 @@ INSERT INTO `tbl_giaohang` (`giaohang_id`, `hinhthuc_gh`, `giacuoc`, `tinhtrang_
 CREATE TABLE `tbl_giohang` (
   `giohang_id` int(11) NOT NULL,
   `sanpham_id` int(11) NOT NULL,
-  `so_luong` int(11) NOT NULL,
+  `so_luong_cart` int(11) NOT NULL,
   `id_user` float NOT NULL,
   `size` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Đang đổ dữ liệu cho bảng `tbl_giohang`
 --
 
-INSERT INTO `tbl_giohang` (`giohang_id`, `sanpham_id`, `so_luong`, `id_user`, `size`) VALUES
-(4, 1, 1, 1, 1),
-(5, 1, 1, 1, 2);
+INSERT INTO `tbl_giohang` (`giohang_id`, `sanpham_id`, `so_luong_cart`, `id_user`, `size`) VALUES
+(7, 1, 1, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -187,7 +188,7 @@ CREATE TABLE `tbl_hoadon` (
   `sdt_nn` varchar(10) NOT NULL,
   `ghichu` varchar(200) NOT NULL,
   `tinhtrangdh` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Đang đổ dữ liệu cho bảng `tbl_hoadon`
@@ -209,7 +210,7 @@ CREATE TABLE `tbl_lienhe` (
   `nguoidung_id` int(11) NOT NULL,
   `email_lh` varchar(200) NOT NULL,
   `noidung_lh` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -220,7 +221,7 @@ CREATE TABLE `tbl_lienhe` (
 CREATE TABLE `tbl_loaisp` (
   `loaisp_id` int(11) NOT NULL,
   `tenloaisp` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Đang đổ dữ liệu cho bảng `tbl_loaisp`
@@ -246,7 +247,7 @@ CREATE TABLE `tbl_nguoidung` (
   `password` varchar(32) NOT NULL,
   `ngaysinh` date NOT NULL,
   `phanquyen` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Đang đổ dữ liệu cho bảng `tbl_nguoidung`
@@ -274,7 +275,7 @@ CREATE TABLE `tbl_sanpham` (
   `trangthaisp` int(11) NOT NULL,
   `loaisp_id` int(11) NOT NULL,
   `ngay_tao` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Đang đổ dữ liệu cho bảng `tbl_sanpham`
@@ -285,7 +286,7 @@ INSERT INTO `tbl_sanpham` (`sanpham_id`, `tensp`, `hinhanh`, `mota`, `dongia`, `
 (2, 'Giày Bitis', '1.jpg', 'Đẹp', 2000000, 10, 1, 1, NULL),
 (3, 'Nike', '1.jpg', 'Đẹp', 3000000, 10, 1, 2, NULL),
 (4, 'Adidas', '1.jpg', 'Đẹp', 4000000, 10, 1, 3, NULL),
-(5, 'Giày nữ Adidas 1', '', '', 199000, 90, 0, 2, '0000-00-00'),
+(5, 'Giày nữ Adidas 1', '2.jpg', '', 199000, 90, 0, 2, '0000-00-00'),
 (6, 'giày nữ Adidas 2', '', 'Giày xinh', 230000, 120, 0, 2, '0000-00-00'),
 (7, 'giày nữ Adidas 3', '', '', 180000, 120, 0, 2, '0000-00-00'),
 (8, 'giày nữ Converse 1', '', 'Giày xinh', 180000, 100, 0, 2, '0000-00-00'),
@@ -331,7 +332,7 @@ INSERT INTO `tbl_sanpham` (`sanpham_id`, `tensp`, `hinhanh`, `mota`, `dongia`, `
 CREATE TABLE `tbl_size` (
   `size_id` int(11) NOT NULL,
   `so_size` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Đang đổ dữ liệu cho bảng `tbl_size`
@@ -357,7 +358,7 @@ CREATE TABLE `tbl_thanhtoan` (
   `hinhthuc_tt` varchar(200) NOT NULL,
   `ghichu` varchar(200) NOT NULL,
   `ngay_tt` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Đang đổ dữ liệu cho bảng `tbl_thanhtoan`
@@ -493,7 +494,7 @@ ALTER TABLE `tbl_giaohang`
 -- AUTO_INCREMENT cho bảng `tbl_giohang`
 --
 ALTER TABLE `tbl_giohang`
-  MODIFY `giohang_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `giohang_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_hoadon`
