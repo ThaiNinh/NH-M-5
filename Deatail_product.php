@@ -1,7 +1,7 @@
 <?php
+require_once ("./header.php");
 
-require_once "../Config/Connectdb.php";
-require_once "../Config/LinkAll.php";
+require_once "./Config/Connectdb.php";
 
 $id = $_GET['id'];
 
@@ -71,14 +71,7 @@ if(isset($_POST['btn_add_cart'])){
 </head>
 
 <body>
-    <div class="detail_page container">
-        <div class="nav">
-            <ul>
-                <li><a href="../index.php">Trang chủ</a></li>
-                <p>-</p>
-                <li><a href="./Deatail_product.php?id=<?= $id ?>">Chi tiết sản phẩm</a></li>
-            </ul>
-        </div>
+    <div style="padding-top: 200px;" class="detail_page container">
         <div class="content">
             <div class="product">
                 <?php foreach ($detail_product as $key => $value) :?>
