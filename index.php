@@ -179,7 +179,7 @@
                     </div>
                 </div>
                 <div class="card-footer d-flex justify-content-between bg-light border">
-                    <a href=".//Deatail_product.php?id=<?= $value['sanpham_id']?>" class="btn btn-sm text-dark p-0"><i
+                    <a href="./Detail_product.php?id=<?= $value['sanpham_id']?>" class="btn btn-sm text-dark p-0"><i
                             class="fas fa-eye text-primary mr-1"></i>Chi tiết</a>
                     <a href="" class="btn btn-sm text-dark p-0"><i
                             class="fas fa-shopping-cart text-primary mr-1"></i>Thêm vào giỏ</a>

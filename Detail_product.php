@@ -1,7 +1,8 @@
 <?php
 require_once ("./header.php");
 
-require_once "./Config/Connectdb.php";
+require_once ("./Config/Connectdb.php");
+require_once ("./Config/LinkAll.php");
 
 $id = $_GET['id'];
 
@@ -24,6 +25,7 @@ $sql_get_size = "SELECT * FROM `tbl_size` JOIN tbl_detail_san_pham ON tbl_detail
 $detail_size = executeQuery($sql_get_size, true) ?: [];
 
 
+
 if(isset($_POST['btn_add_cart'])){
     $count = $_POST['count_value'];
     $size = $_POST['size'];
@@ -31,7 +33,6 @@ if(isset($_POST['btn_add_cart'])){
     $product = executeQuery($search_product, false);
 
     if($product){
-
         $new_count = $product['so_luong'] + $count;
     
         $sql_add_cart = "UPDATE `tbl_giohang` SET `so_luong`='$new_count' WHERE sanpham_id = $id";
@@ -42,7 +43,7 @@ if(isset($_POST['btn_add_cart'])){
             </script>
         ');
     } else {
-        $sql_add_cart = "INSERT INTO `tbl_giohang`(`sanpham_id`, `so_luong`, `id_user`, `size`) VALUES ('$id','$count', 1, '$size')";
+        $sql_add_cart = "INSERT INTO `tbl_giohang`(`sanpham_id`, `so_luong_cart`, `id_user`, `size`) VALUES ('$id','$count', 1, '$size')";
         executeQuery($sql_add_cart, true);
         echo ('
             <script>
@@ -67,11 +68,11 @@ if(isset($_POST['btn_add_cart'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chi tiết sản phẩm</title>
 
-    <link rel="stylesheet" href="../publics/Css/detail_page.css">
+    <link rel="stylesheet" href="./publics/Css/detail_page.css">
 </head>
 
 <body>
-    <div style="padding-top: 200px;" class="detail_page container">
+    <div style="padding-top: 260px;" class="detail_page container">
         <div class="content">
             <div class="product">
                 <?php foreach ($detail_product as $key => $value) :?>
@@ -123,8 +124,7 @@ if(isset($_POST['btn_add_cart'])){
                     </div>
                     <div class="desc_item">
                         <b>
-                            <a
-                                href="./Deatail_product.php?id=<?= $valuelist['sanpham_id']?>"><?= $valuelist['tensp']?></a>
+                            <a href="./Detail_product.php?id=<?= $value['sanpham_id'] ?>"><?= $valuelist['tensp']?></a>
                         </b>
                         <p class="price"><?= product_price($valuelist['dongia']) ?></p>
                     </div>

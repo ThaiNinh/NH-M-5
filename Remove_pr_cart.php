@@ -1,5 +1,5 @@
 <?php
-require "../Config/Connectdb.php";
+require "./Config/Connectdb.php";
 
 // session_start();
 // $email_user = $_SESSION['user']['email'];
