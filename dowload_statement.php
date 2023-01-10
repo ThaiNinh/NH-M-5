@@ -24,11 +24,16 @@ foreach ($data_product as  $value) {
 	$index++;
 }
 
-header('Content-type:application/vnd.ms-excel');
-header('Content-Disposition: attachment;filename="bao_cao_doanh_thu'.time().'.xls"');
-header("Pragma: no-cache");
-header("Expires: 0");
-PHPExcel_IOFactory::createWriter($excel,'Excel2007')->save('php://output');
+// header('Content-type:application/vnd.ms-excel');
+// header('Content-Disposition: attachment;filename="bao_cao_doanh_thu'.time().'.xls"');
+// header("Pragma: no-cache");
+// header("Expires: 0");
+// PHPExcel_IOFactory::createWriter($excel,'Excel2007')->save('php://output');
 
+header('Content-Type: application/vnd.ms-excel'); 
+header('Content-Disposition: attachment;filename="bao_cao_doanh_thu'.time().'.xls"'); 
+header('Cache-Control: max-age=0'); 
+$excel = PHPExcel_IOFactory::createWriter($excel, 'Excel5'); 
+$excel->save('php://output');
 
 ?>

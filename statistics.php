@@ -1,4 +1,5 @@
 <?php
+require_once "./header.php";
 require_once "./Config/Connectdb.php";
 require_once "./Config/LinkAll.php";
 

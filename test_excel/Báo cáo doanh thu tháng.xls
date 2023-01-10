@@ -1,0 +1,52 @@
+<table id="tblData" style="text-align: center;">
+        <thead>
+            <tr>
+                <th class="col-2"><i>Tên sản phẩm</i></th>
+                <th class="col-2"><i>Số lượng bán</i></th>
+                <th class="col-2"><i>Tổng số lượng</i></th>
+                <th class="col-2"><i>Đơn giá</i></th>
+                <th class="col-2"><i>Doanh thu</i></th>
+            </tr>
+        </thead>
+        <tbody>
+                        <tr>
+                <td style="text-align: left;">Giày Bitis</td>
+                <td>3</td>
+                <td>10</td>
+                <td style=" text-align: left;">2.000.000đ</td>
+                <td style="text-align: left;">6.000.000đ</td>
+            </tr>
+                        <tr>
+                <td style="text-align: left;">Giày Thượng Đình</td>
+                <td>1</td>
+                <td>10</td>
+                <td style=" text-align: left;">200.000đ</td>
+                <td style="text-align: left;">200.000đ</td>
+            </tr>
+                        <tr>
+                <td style="text-align: left;">Giày Bitis</td>
+                <td>1</td>
+                <td>10</td>
+                <td style=" text-align: left;">2.000.000đ</td>
+                <td style="text-align: left;">2.000.000đ</td>
+            </tr>
+                        <tr>
+                <td style="text-align: left;">Giày Bitis</td>
+                <td>1</td>
+                <td>10</td>
+                <td style=" text-align: left;">2.000.000đ</td>
+                <td style="text-align: left;">2.000.000đ</td>
+            </tr>
+                        <tr>
+                <td style="text-align: left;">Giày Bitis</td>
+                <td>1</td>
+                <td>10</td>
+                <td style=" text-align: left;">2.000.000đ</td>
+                <td style="text-align: left;">2.000.000đ</td>
+            </tr>
+                        <tr>
+                <td class="col-2"><b>Tổng doanh thu:</b></td>
+                <td style="text-align: right;" class="col-2" colspan=" 5">12.200.000đ</td>
+            </tr>
+        </tbody>
+    </table>
