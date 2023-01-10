@@ -4,7 +4,7 @@ require_once "./Config/Connectdb.php";
 require_once "./Config/LinkAll.php";
 
 $id_user = $_GET['user'];
-
+echo($id_user);
 // Sql get cart by user_Id
 $sql_get_cart = "SELECT * FROM `tbl_giohang` JOIN tbl_sanpham ON tbl_sanpham.sanpham_id = tbl_giohang.sanpham_id  JOIN tbl_size ON tbl_giohang.size = tbl_size.size_id WHERE nguoidung_id = $id_user";
 $data_cart = executeQuery($sql_get_cart, true) ?: [];
@@ -12,17 +12,7 @@ $data_cart = executeQuery($sql_get_cart, true) ?: [];
 
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giỏ hàng</title>
-
-    <link rel="stylesheet" href="./publics/Css/cart_page.css">
-</head>
 
 <body>
     <div class="main container" style="padding-top: 250px;" id="app">
@@ -73,7 +63,7 @@ $data_cart = executeQuery($sql_get_cart, true) ?: [];
                 </tr>
             </tbody>
         </table>
-        <button @click="handlePayment()">Thanh toán</button>
+        <a href="pay.php">Thanh toán</a>
     </div>
 
 

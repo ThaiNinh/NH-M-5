@@ -1,19 +1,15 @@
 <?php
 include 'config.php';
-    $_SESSION['name'];
-    $_SESSION['phone'];
-    $_SESSION['diachi'];
-    $_SESSION['email'];
-    $_SESSION['bday'];
-    $_SESSION['type'];
-
+if(!isset($_SESSION["id"])) 
+{
+    header("location:login.php"); 
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="eshopper-1.0.0/css/style.css" media="all">
@@ -28,7 +24,6 @@ include 'config.php';
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
-
     <style>
             .has-error{
                 color: red;
@@ -187,7 +182,8 @@ include 'config.php';
         <div class="row px-xl-5">
             <div class="col-lg-7 mb-5">
                 <div class="contact-form">
-                <?php
+                    <div id="success"></div>
+                    <?php
                     if(isset($_SESSION['id'])){
                         $id = $_SESSION['id'];
                         $sql = "SELECT*FROM `tbl_nguoidung` WHERE `nguoidung_id` = '$id'";
@@ -196,44 +192,29 @@ include 'config.php';
                     ?>
                     <form action="updaterun.php" method="POST" role="form">
                         <div class="control-group mb-3">
-                            <?php if($_SESSION['name'] == 'admin'){?>
                             <input type="text" class="form-control" name="name" disabled = "disabled" value ="<?php echo $nd_id['ten_nd']?>">
-                            <?php }else{?>
-                            <input type="text" class="form-control" name="name" disabled = "disabled" value ="<?php echo $nd_id['ten_nd']?>">
-                            <?php }?>
                         </div>
                         <div class="control-group mb-3">
-                            <input type="email" class="form-control" name="email" disabled = "disabled" value ="<?php echo $nd_id['email']?>">
+                            <label>Current Password:- </label>
+                            <input type="password" name="currentPassword" class="form-control">
                         </div>
                         <div class="control-group mb-3">
-                            <input type="text" class="form-control" name="bday" disabled = "disabled" value ="<?php echo $nd_id['ngaysinh']?>">
+                            <label>New Password:- </label>
+                            <input type="password" name="newPassword"  class="form-control">
                         </div>
                         <div class="control-group mb-3">
-                            <input type="tel" class="form-control" name="phone" disabled = "disabled" value ="<?php echo $nd_id['sdt']?>">
-                        </div>
-                        <div class="control-group mb-3">
-                            <input type="text" class="form-control" name="diachi" disabled = "disabled" value ="<?php echo $nd_id['diachi']?>">
+                            <label>Confirm New Password:-</label>
+                            <input type="password" name="passwordConfirm"  class="form-control">
                         </div>
                         <div class="d-grid mt-3">
-                            <button class="btn btn-primary btn-xl" id="submitButton" name="update">
-                                <a class ="text-light" href="updateprofile.php?id=<?php echo $_SESSION['id']?>">Sửa Thông Tin</a>
-                            </button>
+                            <button class="btn btn-primary btn-xl" type="submit" name="change_password">Đổi Mật Khẩu</button>
                         </div>
-                        <div class="d-grid mt-3">
-                            <button class="btn btn-primary btn-xl" id="submitButton" name="update">
-                                <a class ="text-light" href="updatepass.php?id=<?php echo $_SESSION['id']?>">Sửa Mật khẩu</a>
-                            </button>
-                        </div>
+                        </form>
                     <?php
                     } 
-                    }
+                }
                     ?>
                     </form>
-                    <?php if($_SESSION['type'] == '0') {?>
-                        <form action="admin/admin.php">
-                            <div class="d-grid mt-3"><button class="btn btn-primary btn-xl" id="submitButton" type="submit">Dashboard</button></div>
-                        </form>
-                    <?php }?>
                 </div>
             </div>
             </div>

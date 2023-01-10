@@ -178,11 +178,10 @@
                         <h6><?= product_price($value['dongia'])?></h6>
                     </div>
                 </div>
-                <div class="card-footer d-flex justify-content-between bg-light border">
+                <div class="card-footer d-flex justify-content-center bg-light border">
                     <a href="./Detail_product.php?id=<?= $value['sanpham_id']?>" class="btn btn-sm text-dark p-0"><i
                             class="fas fa-eye text-primary mr-1"></i>Chi tiết</a>
-                    <a href="" class="btn btn-sm text-dark p-0"><i
-                            class="fas fa-shopping-cart text-primary mr-1"></i>Thêm vào giỏ</a>
+                   
                 </div>
             </div>
         </div>

@@ -39,7 +39,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
-
+        <link rel="stylesheet" href="./publics/Css/cart_page.css">
 </head>
 
 <body>
@@ -164,14 +164,9 @@
 					</div> -->
 
                         <div class="col-4">
-                            <a href="" class="btn border">
-                                <i class="fas fa-heart text-primary"></i>
-                                <span class="badge">0</span>
-                            </a>
-
                             <a href="<?= check_cart() ?>" class="btn border">
                                 <i class="fas fa-shopping-cart text-primary"></i>
-                                <span class="badge">0</span>
+                                <span class="badge"></span>
                             </a>
                         </div>
 

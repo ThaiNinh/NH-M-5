@@ -24,12 +24,6 @@ $data_list_products = executeQuery($sql_get_list_product, true) ?: [];
 $sql_get_size = "SELECT * FROM `tbl_size` JOIN tbl_detail_san_pham ON tbl_detail_san_pham.id_size = tbl_size.size_id WHERE tbl_detail_san_pham.id_sp = $id";
 $detail_size = executeQuery($sql_get_size, true) ?: [];
 
-
-
-
-
-
-
 if(isset($_POST['btn_add_cart'])){
     if(isset($_SESSION['id'])){
         $count = $_POST['count_value'];
@@ -111,7 +105,7 @@ if(isset($_POST['btn_add_cart'])){
                             </div>
                             <div class="list_button">
                                 <button name="btn_add_cart">Thêm vào giỏ hàng</button>
-                                <button>Thanh toán</button>
+                               
                             </div>
                         </form>
                     </div>

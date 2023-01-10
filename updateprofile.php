@@ -1,18 +1,15 @@
 <?php
 include 'config.php';
-    $_SESSION['name'];
-    $_SESSION['phone'];
-    $_SESSION['diachi'];
-    $_SESSION['email'];
-    $_SESSION['bday'];
-    $_SESSION['type'];
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xu Store</title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -29,6 +26,9 @@ include 'config.php';
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
 
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
     <style>
             .has-error{
                 color: red;
@@ -187,9 +187,10 @@ include 'config.php';
         <div class="row px-xl-5">
             <div class="col-lg-7 mb-5">
                 <div class="contact-form">
-                <?php
-                    if(isset($_SESSION['id'])){
-                        $id = $_SESSION['id'];
+                    <div id="success"></div>
+                    <?php
+                    if(isset($_GET['id'])){
+                        $id = $_GET['id'];
                         $sql = "SELECT*FROM `tbl_nguoidung` WHERE `nguoidung_id` = '$id'";
                         $query = mysqli_query($conn, $sql);
                         while($nd_id = mysqli_fetch_array($query)){
@@ -197,43 +198,33 @@ include 'config.php';
                     <form action="updaterun.php" method="POST" role="form">
                         <div class="control-group mb-3">
                             <?php if($_SESSION['name'] == 'admin'){?>
-                            <input type="text" class="form-control" name="name" disabled = "disabled" value ="<?php echo $nd_id['ten_nd']?>">
+                            <input type="hidden" class="form-control" name="name" value ="<?php echo $nd_id['ten_nd']?>">
                             <?php }else{?>
-                            <input type="text" class="form-control" name="name" disabled = "disabled" value ="<?php echo $nd_id['ten_nd']?>">
+                            <input type="text" class="form-control" name="name" value ="<?php echo $nd_id['ten_nd']?>">
+                            <span> <?php echo (isset($warning))?$warning:''?></span>
                             <?php }?>
                         </div>
                         <div class="control-group mb-3">
-                            <input type="email" class="form-control" name="email" disabled = "disabled" value ="<?php echo $nd_id['email']?>">
+                            <input type="email" class="form-control" name="email" value ="<?php echo $nd_id['email']?>">
                         </div>
                         <div class="control-group mb-3">
-                            <input type="text" class="form-control" name="bday" disabled = "disabled" value ="<?php echo $nd_id['ngaysinh']?>">
+                            <input type="text" class="form-control" name="bday" value ="<?php echo $nd_id['ngaysinh']?>">
                         </div>
                         <div class="control-group mb-3">
-                            <input type="tel" class="form-control" name="phone" disabled = "disabled" value ="<?php echo $nd_id['sdt']?>">
+                            <input type="tel" class="form-control" name="phone" value ="<?php echo $nd_id['sdt']?>">
                         </div>
                         <div class="control-group mb-3">
-                            <input type="text" class="form-control" name="diachi" disabled = "disabled" value ="<?php echo $nd_id['diachi']?>">
+                            <input type="text" class="form-control" name="diachi" value ="<?php echo $nd_id['diachi']?>">
                         </div>
                         <div class="d-grid mt-3">
-                            <button class="btn btn-primary btn-xl" id="submitButton" name="update">
-                                <a class ="text-light" href="updateprofile.php?id=<?php echo $_SESSION['id']?>">Sửa Thông Tin</a>
-                            </button>
+                            <button class="btn btn-primary btn-xl" type="submit" name="update">Sửa Thông Tin</button>
                         </div>
-                        <div class="d-grid mt-3">
-                            <button class="btn btn-primary btn-xl" id="submitButton" name="update">
-                                <a class ="text-light" href="updatepass.php?id=<?php echo $_SESSION['id']?>">Sửa Mật khẩu</a>
-                            </button>
-                        </div>
+                        </form>
                     <?php
                     } 
-                    }
+                }
                     ?>
                     </form>
-                    <?php if($_SESSION['type'] == '0') {?>
-                        <form action="admin/admin.php">
-                            <div class="d-grid mt-3"><button class="btn btn-primary btn-xl" id="submitButton" type="submit">Dashboard</button></div>
-                        </form>
-                    <?php }?>
                 </div>
             </div>
             </div>

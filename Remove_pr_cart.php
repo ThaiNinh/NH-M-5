@@ -8,7 +8,7 @@ $id = $_GET['id'];
 $size = $_GET['size'];
 
     
-$sql_remove_item_cart = "DELETE FROM `tbl_giohang` WHERE sanpham_id = $id AND id_user = 1 AND size = $size";
+$sql_remove_item_cart = "DELETE FROM `tbl_giohang` WHERE sanpham_id = $id AND nguoidung_id = 1 AND size = $size";
 $data_cart = executeQuery($sql_remove_item_cart, true) ?: [];
 
 header('Location: ./Cart.php?user=1');
