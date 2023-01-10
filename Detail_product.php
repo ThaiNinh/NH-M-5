@@ -35,7 +35,7 @@ if(isset($_POST['btn_add_cart'])){
         $count = $_POST['count_value'];
         $size = $_POST['size'];
         $id_user = $_SESSION['id'];
-        $search_product = "SELECT * FROM `tbl_giohang` WHERE sanpham_id = $id AND size = $size AND id_user = $id_user";
+        $search_product = "SELECT * FROM `tbl_giohang` WHERE sanpham_id = $id AND size = $size AND nguoidung_id = $id_user";
         $product = executeQuery($search_product, false);
     
         if($product){
@@ -49,7 +49,7 @@ if(isset($_POST['btn_add_cart'])){
                 </script>
             ');
         } else {
-            $sql_add_cart = "INSERT INTO `tbl_giohang`(`sanpham_id`, `so_luong_cart`, `id_user`, `size`) VALUES ('$id','$count', $id_user, '$size')";
+            $sql_add_cart = "INSERT INTO `tbl_giohang`(`sanpham_id`, `so_luong_cart`, `nguoidung_id`, `size`) VALUES ('$id','$count', $id_user, '$size')";
             executeQuery($sql_add_cart, true);
             echo ('
                 <script>

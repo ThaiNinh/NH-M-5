@@ -6,7 +6,7 @@ require_once "./Config/LinkAll.php";
 $id_user = $_GET['user'];
 
 // Sql get cart by user_Id
-$sql_get_cart = "SELECT * FROM `tbl_giohang` JOIN tbl_sanpham ON tbl_sanpham.sanpham_id = tbl_giohang.sanpham_id  JOIN tbl_size ON tbl_giohang.size = tbl_size.size_id WHERE id_user = $id_user";
+$sql_get_cart = "SELECT * FROM `tbl_giohang` JOIN tbl_sanpham ON tbl_sanpham.sanpham_id = tbl_giohang.sanpham_id  JOIN tbl_size ON tbl_giohang.size = tbl_size.size_id WHERE nguoidung_id = $id_user";
 $data_cart = executeQuery($sql_get_cart, true) ?: [];
 
 
