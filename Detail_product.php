@@ -41,7 +41,7 @@ if(isset($_POST['btn_add_cart'])){
         if($product){
             $new_count = $product['so_luong_cart'] + $count;
         
-            $sql_add_cart = "UPDATE `tbl_giohang` SET `so_luong`='$new_count' WHERE sanpham_id = $id";
+            $sql_add_cart = "UPDATE `tbl_giohang` SET `so_luong_cart`='$new_count' WHERE `sanpham_id` = $id";
             executeQuery($sql_add_cart, true);
             echo ('
                 <script>
