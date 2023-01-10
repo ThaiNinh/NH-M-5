@@ -34,12 +34,12 @@ if(isset($_POST['btn_add_cart'])){
     if(isset($_SESSION['id'])){
         $count = $_POST['count_value'];
         $size = $_POST['size'];
-        $search_product = "SELECT * FROM `tbl_giohang` WHERE sanpham_id = $id AND size = $size";
-        $product = executeQuery($search_product, false);
         $id_user = $_SESSION['id'];
+        $search_product = "SELECT * FROM `tbl_giohang` WHERE sanpham_id = $id AND size = $size AND id_user = $id_user";
+        $product = executeQuery($search_product, false);
     
         if($product){
-            $new_count = $product['so_luong'] + $count;
+            $new_count = $product['so_luong_cart'] + $count;
         
             $sql_add_cart = "UPDATE `tbl_giohang` SET `so_luong`='$new_count' WHERE sanpham_id = $id";
             executeQuery($sql_add_cart, true);
