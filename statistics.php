@@ -1,6 +1,6 @@
 <?php
-require_once "../Config/Connectdb.php";
-require_once "../Config/LinkAll.php";
+require_once "./Config/Connectdb.php";
+require_once "./Config/LinkAll.php";
 
 // Get all products
 $sql_get_all_product = "SELECT * FROM `tbl_sanpham`";

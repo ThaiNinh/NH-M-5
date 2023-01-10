@@ -26,32 +26,42 @@ $detail_size = executeQuery($sql_get_size, true) ?: [];
 
 
 
+
+
+
+
 if(isset($_POST['btn_add_cart'])){
-    $count = $_POST['count_value'];
-    $size = $_POST['size'];
-    $search_product = "SELECT * FROM `tbl_giohang` WHERE sanpham_id = $id AND size = $size";
-    $product = executeQuery($search_product, false);
-
-    if($product){
-        $new_count = $product['so_luong'] + $count;
+    if(isset($_SESSION['id'])){
+        $count = $_POST['count_value'];
+        $size = $_POST['size'];
+        $search_product = "SELECT * FROM `tbl_giohang` WHERE sanpham_id = $id AND size = $size";
+        $product = executeQuery($search_product, false);
+        $id_user = $_SESSION['id'];
     
-        $sql_add_cart = "UPDATE `tbl_giohang` SET `so_luong`='$new_count' WHERE sanpham_id = $id";
-        executeQuery($sql_add_cart, true);
-        echo ('
-            <script>
-                alert("Thêm sản phẩm vào giỏ hàng thành công!")
-            </script>
-        ');
-    } else {
-        $sql_add_cart = "INSERT INTO `tbl_giohang`(`sanpham_id`, `so_luong_cart`, `id_user`, `size`) VALUES ('$id','$count', 1, '$size')";
-        executeQuery($sql_add_cart, true);
-        echo ('
-            <script>
-                alert("Thêm sản phẩm vào giỏ hàng thành công!")
-            </script>
-        ');
+        if($product){
+            $new_count = $product['so_luong'] + $count;
+        
+            $sql_add_cart = "UPDATE `tbl_giohang` SET `so_luong`='$new_count' WHERE sanpham_id = $id";
+            executeQuery($sql_add_cart, true);
+            echo ('
+                <script>
+                    alert("Thêm sản phẩm vào giỏ hàng thành công!")
+                </script>
+            ');
+        } else {
+            $sql_add_cart = "INSERT INTO `tbl_giohang`(`sanpham_id`, `so_luong_cart`, `id_user`, `size`) VALUES ('$id','$count', $id_user, '$size')";
+            executeQuery($sql_add_cart, true);
+            echo ('
+                <script>
+                    alert("Thêm sản phẩm vào giỏ hàng thành công!")
+                </script>
+            ');
+        }
+    } else if(!isset($_SESSION['id'])) {
+        echo (' <Script>
+        alert("Vui lòng đăng nhập trước khi mua hàng!")
+        </Script>');
     }
-
 }
 
 
@@ -133,6 +143,8 @@ if(isset($_POST['btn_add_cart'])){
             </div>
         </div>
     </div>
+
+
 </body>
 
 </html>

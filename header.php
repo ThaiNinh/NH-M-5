@@ -4,6 +4,16 @@
 	$sqlloaisanpham ="SELECT * FROM `tbl_loaisp` Order by loaisp_id";
 	$query=mysqli_query($conn,$sqlloaisanpham);
 
+    function check_cart(){
+        if(isset($_SESSION['id'])){
+            $id_user = $_SESSION['id'];
+            echo "./Cart.php?user=$id_user";
+        } else {
+            echo "";
+        }
+    }
+    
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -77,13 +87,6 @@
                                     Về chúng tôi<span class="ui-button-icon-only"></span>
                                 </a>
                             </li>
-                            <!--<div class="nav-item dropdown show">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Pages</a>
-                                <div class="dropdown-menu rounded-0 m-0 show">
-                                    <a href="cart.html" class="dropdown-item">Shopping Cart</a>
-                                    <a href="checkout.html" class="dropdown-item">Checkout</a>
-                                </div>
-                            </div>-->
                             <li class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"
                                     aria-expanded="false">
@@ -166,7 +169,7 @@
                                 <span class="badge">0</span>
                             </a>
 
-                            <a href="./Cart.php?user=1" class="btn border">
+                            <a href="<?= check_cart() ?>" class="btn border">
                                 <i class="fas fa-shopping-cart text-primary"></i>
                                 <span class="badge">0</span>
                             </a>
