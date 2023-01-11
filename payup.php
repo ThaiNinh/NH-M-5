@@ -8,7 +8,7 @@
         // 1. Kết nối đến máy chủ dữ liệu và đến csdl mà bạn muốn lấy, thêm mới, sửa, xóa dữ liệu
             include("database/dbcon.php");
         // 2. Lấy được ra các dữ liệu từ trang thanhtoan.php chuyển sang
-        $id= $_SESSION['name'];
+        $id= $_SESSION['id'];
         $giaohang_id = $_POST['giaohang_id'];
         $thanhtoan_id = $_POST['thanhtoan_id'];
         $ten = $_POST['txtHovaten'];
@@ -16,8 +16,9 @@
         $diachi = $_POST['txtDiachi'];
         $ghichu = $_POST['txtGhichu'];
 
+// hóa đơn 
         $sql1 = "INSERT INTO tbl_hoadon (hoadon_id, nguoidung_id, giaohang_id, thanhtoan_id, ngaynhap, ten_nn, diachi_nn, sdt_nn, ghichu, tinhtrangdh) 
-        VALUES (NULL,'".$id."','".$giaohang_id."','".$thanhtoan_id."',current_timestamp(),'".$ten."', '".$diachi."','".$sodienthoai."','".$ghichu."','0')";
+        VALUES ('','".$id."','".$giaohang_id."','".$thanhtoan_id."',current_timestamp(),'".$ten."', '".$diachi."','".$sodienthoai."','".$ghichu."','0')";
         $thanh_toan = mysqli_query($conn, $sql1);
         
         if($thanh_toan){
@@ -25,29 +26,40 @@
                 $mahd = mysqli_query($conn, $sql2);
                 $row1 = mysqli_fetch_array($mahd);
 
-            $sql3 = "SELECT a.giohang_id,a.so_luong_cart,a.size,a.sanpham_id,b.dongia 
-            FROM `tbl_giohang` AS a JOIN `tbl_sanpham` AS b WHERE a.sanpham_id=b.sanpham_id";
+            $sql3 = "SELECT a.giohang_id,a.so_luong_cart,a.size,a.sanpham_id,b.dongia, b.hinhanh
+            FROM `tbl_giohang` AS a JOIN `tbl_sanpham` AS b WHERE a.sanpham_id=b.sanpham_id AND a.nguoidung_id='".$id."'";
 
             # Thực thi câu lệnh truy vấn
             $giohang = mysqli_query($conn, $sql3);
             $y = 0 ;
+            // echo (mysqli_fetch_array($giohang).length);
+            // array = [sp1, sp2, sp3]
+            // for (i < array.length) 
+//  for($)
             # Hiển thị ra CSDL mà bạn vừa lấy được
             while ($row2 = mysqli_fetch_array($giohang))
                 {
                     $y++;
                     $row2['thanhtien'] = $row2['so_luong_cart'] * $row2['dongia'];
-                    $sql4= "INSERT INTO tbl_cthoadon( hoadon_id, sanpham_id,  so_luong_cart, thanhtien,hinhanh) 
+                    $sql4= "INSERT INTO tbl_cthoadon( hoadon_id, sanpham_id,  soluong, thanhtien,hinhanh) 
                     VALUES ('".$row1['max(hoadon_id)']."','".$row2['sanpham_id']."', '".$row2['so_luong_cart']."','".$row2['thanhtien']."','".$row2['hinhanh']."')";
+                // echo ($sql4);
                     $thanh_toan = mysqli_query($conn, $sql4);
                 }
- 
+
+                //sai
             $sql5 = "SELECT * FROM tbl_hoadon join tbl_giaohang 
             WHERE tbl_hoadon.giaohang_id=tbl_giaohang.giaohang_id";
             $giaohang = mysqli_query($conn, $sql5);
             $row3 = mysqli_fetch_array($giaohang);
 
+            $sqll="SELECT max(giaohang_id) from tbl_giaohang";
+            $max = mysqli_query($conn, $sqll);
+            $roww = mysqli_fetch_array($max);
+            echo ($roww['max(giaohang_id)']);
+            $r3 = $roww['max(giaohang_id)'] + 1;
             $sql6="INSERT INTO tbl_giaohang (giaohang_id, hoadon_id, nguoidung_id, hinhthuc_gh) 
-            VALUES('".$row3['giaohang_id']."','".$row1['max(hoadon_id)']."','".$row3['nguoidung_id']."', '".$row3['hinhthuc_gh']."')";
+            VALUES('".$r3."','".$row1['max(hoadon_id)']."','".$id."', '".$row3['hinhthuc_gh']."')";
             $van_chuyen = mysqli_query($conn, $sql6);
 
 
@@ -58,13 +70,15 @@
             $row4 = mysqli_fetch_array($tt);
 
             $sql8="INSERT INTO tbl_ctthanhtoan (thanhtoan_id, nguoidung_id, hoadon_id, tinhtrang_tt) 
-            values('".$row4['thanhtoan_id']."','".$row4['nguoidung_id']."','".$row1['max(hoadon_id)']."', '0')";
+            values('".$row4['thanhtoan_id']."','".$id."','".$row1['max(hoadon_id)']."', '0')";
             $thanhtoandon = mysqli_query($conn, $sql8);
+
+          
 
         }
                                         
        // 5. Hiển thị ra thông báo bạn đã thêm mới tin tức thành công và đẩy về trang trang_chu.php
-        $sql9="DELETE from tbl_giohang ";
+        $sql9="DELETE from tbl_giohang WHERE nguoidung_id='".$id."'";
         $xoagiohang = mysqli_query($conn, $sql9);
         echo "
              <script type='text/javascript'>
@@ -75,7 +89,7 @@
              <script type='text/javascript'>
                   window.location.href='index.php';
              </script>";     
-
+        die($message);
         ?> 
     </body>
 </html>

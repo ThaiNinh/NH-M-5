@@ -81,8 +81,7 @@ if(isset($_POST['btn_add_cart'])){
             <div class="product">
                 <?php foreach ($detail_product as $key => $value) :?>
                 <div class="img_product col-md-4 col-12">
-                    <img src="https://salt.tikicdn.com/cache/w1200/ts/product/9f/1e/dd/2dadaa50a6928d2146624ea92a3af13f.jpg"
-                        width="100%" alt="">
+                <img src="./img/<?= $value['hinhanh']?>" width="100%" alt="">
                 </div>
                 <div class="desc_product col-md-7 col-12">
                     <title>Chi tiết sản phẩm</title>
@@ -123,8 +122,7 @@ if(isset($_POST['btn_add_cart'])){
                 <?php foreach ($data_list_products as $keylist => $valuelist): ?>
                 <div class="item_product col-md-3 col-6">
                     <div class="img_item">
-                        <img src="https://salt.tikicdn.com/cache/w1200/ts/product/9f/1e/dd/2dadaa50a6928d2146624ea92a3af13f.jpg"
-                            width="100%" alt="">
+                    <img src="./img/<?= $valuelist['hinhanh']?>" width="100%" alt="">
                     </div>
                     <div class="desc_item">
                         <b>

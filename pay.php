@@ -1,7 +1,7 @@
 <!-- viết sql để thực hiện thanh toán - Đặt hàng -->
 <?php
 	require("header.php");
-    $id_user = $_SESSION['id'];
+
     // require_once "./Config/Connectdb.php";
 // require_once "./Config/LinkAll.php";
 
@@ -139,13 +139,14 @@
 <div class="container py-xl-4 py-lg-2">
         <div class="checkout-right">
                                 <?php
+                                $id_user = $_SESSION['id'];
+                                //echo($id_user);
                         //$id_user = $_GET['user']; JOIN tbl_size AS c ON a.size = c.size_id WHERE id_user = $id_user 
-                        $sql_gh="SELECT b.hinhanh,b.tensp,b.dongia,a.so_luong_cart,a.size FROM `tbl_giohang` AS a 
-                        JOIN `tbl_sanpham` AS b  ON a.sanpham_id=b.sanpham_id 
-                        ORDER BY giohang_id DESC";
-                        // $sql_gh = "SELECT b.hinhanh,b.tensp,b.dongia,a.so_luong_cart,a.size FROM `tbl_giohang` AS a 
-                        //  JOIN `tbl_sanpham` AS b  ON a.sanpham_id=b.sanpham_id  WHERE nguoidung_id = $id_user
-                        //  ORDER BY giohang_id DESC";
+                        // $sql_gh="SELECT b.hinhanh,b.tensp,b.dongia,a.so_luong_cart,a.size FROM `tbl_giohang` AS a 
+                        // JOIN `tbl_sanpham` AS b  ON a.sanpham_id=b.sanpham_id 
+                        // ORDER BY giohang_id DESC";
+                        $sql_gh = "SELECT * FROM `tbl_giohang` JOIN tbl_sanpham ON tbl_sanpham.sanpham_id = tbl_giohang.sanpham_id  
+                        JOIN tbl_size ON tbl_giohang.size = tbl_size.size_id WHERE nguoidung_id = $id_user";
                         $sql_lay_giohang = mysqli_query($conn,$sql_gh);
                     ?>
             <div class="table-responsive">
@@ -175,10 +176,14 @@
                                     ?>
                                     <tr class="rem1">
                                         <td class="invert"><?php echo $i ?></td>
-                                            <td class="invert-image">
+                                            <!-- <td class="invert-image">
                                                 <img src="images/<?php echo $row['hinhanh'] ?>" alt=" " class="img-responsive" style="height: 110px;object-fit: contain;">
-                                            </td>
-
+                                            </td> -->
+                                            <td>
+                        <img style="border-radius: 10px;"
+                            src="https://salt.tikicdn.com/cache/w1200/ts/product/9f/1e/dd/2dadaa50a6928d2146624ea92a3af13f.jpg"
+                            width="100%" alt="">
+                    </td>
                                             <td class="invert">
                                             <input type="number" min="1" name="so_luong_cart[]" value="<?php echo $row['so_luong_cart'] ?>" readonly="true">
                                             </td>
@@ -205,7 +210,7 @@
         </div>
 </div>
 
-        
+    <body>    
         <div class="contact-form d-flex justify-content-center mt-5">
             <div class="checkout-left checkout-inner receiver-info-section">
             <form method="POST" action="payup.php" enctype="multipart/form-data" onsubmit="return kiem_tra_nhap_tt();"> 
@@ -256,15 +261,8 @@
                                     </div>
                                     <?php 
                                     }
-                                    # Đóng kết nối với CSDL
-                                    //mysqli_close($conn);
+                                    
                                 ?>
-
-                                <!-- <select>
-                                    <option>Hỏa tốc</option>
-                                    <option>Nhanh</option>
-                                    <option>Tiết kiệm</option>
-                                </select> -->
                                 
                             </div>
                             <div class="control-group">
@@ -281,9 +279,7 @@
                                     <div class="payment-method">
                                         <div class="custom-control custom-radio">
                                             <input type="radio" class="pay-method-input" id="<?php echo $row['thanhtoan_id'] ;?>" name="thanhtoan_id" value="<?php echo $y ;?>" checked ="checked">
-                                            <label class="pay-method-label"><?php echo $row['hinhthuc_tt'] ;?>
-                                        
-                                            </label>
+                                            <label class="pay-method-label"><?php echo $row['hinhthuc_tt'] ;?></label>
                                         </div>
                                     </div>
                                     <?php
@@ -292,10 +288,6 @@
                                     mysqli_close($conn);
                                 ?> 
                             
-                                    <!-- <select>
-                                    <option>VNPay</option>
-                                    <option>Tiền mặt</option>
-                                </select> -->
                                 
                             </div>
                             <div class="control-group">

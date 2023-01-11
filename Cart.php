@@ -3,7 +3,7 @@ require_once ("./header.php");
 require_once "./Config/Connectdb.php";
 // require_once "./Config/LinkAll.php";
 
-$id_user = $_GET['user'];
+$id_user = $_SESSION['id'];
 echo($id_user);
 // Sql get cart by user_Id
 $sql_get_cart = "SELECT * FROM `tbl_giohang` JOIN tbl_sanpham ON tbl_sanpham.sanpham_id = tbl_giohang.sanpham_id  JOIN tbl_size ON tbl_giohang.size = tbl_size.size_id WHERE nguoidung_id = $id_user";
@@ -29,9 +29,7 @@ $data_cart = executeQuery($sql_get_cart, true) ?: [];
             <tbody>
                 <tr v-for="item in data_carts">
                     <td>
-                        <img style="border-radius: 10px;"
-                            src="https://salt.tikicdn.com/cache/w1200/ts/product/9f/1e/dd/2dadaa50a6928d2146624ea92a3af13f.jpg"
-                            width="100%" alt="">
+                    <img style="border-radius: 10px;" v-bind:src="'./img/' + item.hinhanh" width="100%" alt="">
                     </td>
                     <td>
                         <a>{{ item.tensp }}</a>
@@ -117,3 +115,6 @@ $data_cart = executeQuery($sql_get_cart, true) ?: [];
 </body>
 
 </html>
+<?php
+require_once("footer.php");
+?>

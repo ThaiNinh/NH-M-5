@@ -4,7 +4,7 @@
 	$sqlloaisanpham ="SELECT * FROM `tbl_loaisp` Order by loaisp_id";
 	$query=mysqli_query($conn,$sqlloaisanpham);
 
-    function check_cart(){
+    function check_cart(){ 
         if(isset($_SESSION['id'])){
             $id_user = $_SESSION['id'];
             echo "./Cart.php?user=$id_user";
