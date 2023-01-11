@@ -1,3 +1,4 @@
+<div class="mt-3">
 <?php
 if ($current_page > 3) {
     $first_page = 1;
@@ -50,3 +51,4 @@ if ($current_page < $totalPages - 3) {
 
     </button>
 <?php } ?>
+</div>

@@ -111,12 +111,28 @@
                                 </div>
                             </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">
-                                    <i class="fa-regular fa-newspaper"></i>
-                                    Tin tức<span class="ui-button-icon-only"></span>
-                                </a>
-                            </li>
+                            
+                            <?php 
+	                        $sql_danhmuctin ="SELECT * FROM `tbl_dmtin` Order by dmtin_id";
+	                        $query_dmtin=mysqli_query($conn,$sql_danhmuctin)
+
+                            ?>
+					        <li class="nav-item dropdown">
+						    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+							<i class="fa-regular fa-newspaper"></i>
+							Tin tức<span class="ui-button-icon-only"></span>
+							<div class="dropdown-menu rounded-0 m-0">
+							
+							<?php
+							while ($row=mysqli_fetch_array($query_dmtin)){
+							
+							?>
+							<a href="dmbaiviet.php?id=<?php echo $row['dmtin_id'];?>" class="dropdown-item"><?php echo $row['tendm'];?></a>
+							<?php } ?>
+							
+						</a>				
+					  </li>
+                            
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="lienhe.php">
                                     <i class="fa-solid fa-phone"></i>
