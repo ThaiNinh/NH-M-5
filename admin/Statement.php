@@ -1,7 +1,8 @@
 <?php 
-require_once "./header.php";
-require_once "./Config/Connectdb.php";
-require_once "./Config/LinkAll.php";
+
+require_once "../Config/Connectdb.php";
+require_once "../Config/LinkAll.php";
+include 'index.php';
 
 // Sql get product order by count Desc
 $sql_get_product = "SELECT * FROM `tbl_cthoadon` JOIN tbl_sanpham ON tbl_cthoadon.sanpham_id = tbl_sanpham.sanpham_id ORDER BY tbl_cthoadon.soluong DESC LIMIT 20";
@@ -13,24 +14,10 @@ foreach($data_product as $item => $value){
 }
 
 ?>
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Báo cáo chi tiết</title>
-    <link rel="stylesheet" href="../publics/Css/statement.css">
-</head>
-
-<body>
-
-</body>
-<div class="container statement" style="padding-top: 200px;">
+        <!-- Content Start -->
+    <div class="container-fluid pt-4 px-4">
+                <div class="bg-light text-center rounded p-4">
+                <div class="container statement">
     <h3 style="text-align: center;padding: 15px 0px">Báo cáo hàng tháng về sản phẩm bán chạy</h3>
 
     <table id="tblData" style="text-align: center;">
@@ -65,6 +52,12 @@ foreach($data_product as $item => $value){
     padding: 2px 10px;
     background-color: #b7b7b7;
     color: black;" onclick="exportTableToExcel('tblData', 'Báo cáo doanh thu tháng')">Tải báo cáo</button>
+                </div>
+            </div>
+            <!-- Recent Sales End -->
+
+        <!-- Back to Top -->
+
 
     <script>
     function exportTableToExcel(tableID, filename = '') {
@@ -98,6 +91,6 @@ foreach($data_product as $item => $value){
         }
     }
     </script>
-</div>
 
+</body>
 </html>

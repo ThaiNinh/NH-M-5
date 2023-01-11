@@ -170,5 +170,29 @@
         </header>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
             integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            crossorigin="anonymous" referrerpolicy="no-referrer">
+
+	const dropdown =  document.querySelector('.dropdown-toggle');
+	// dropdown.classList.toggle('active');
+
+	dropdown.addEventListener('click',handleClick)
+
+	function handleClick(){
+		document.querySelector('.dropdown-menu').classList.toggle('active');
+	}
+let slides = document.querySelectorAll('.slide-container');
+let index = 0;
+
+function next(){
+    slides[index].classList.remove('active');
+    index = (index + 1) % slides.length;
+    slides[index].classList.add('active');
+}
+
+function prev(){
+    slides[index].classList.remove('active');
+    index = (index - 1 + slides.length) % slides.length;
+    slides[index].classList.add('active');
+}
+</script></script>
     </div>

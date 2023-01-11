@@ -1,7 +1,7 @@
 <?php 
-require_once "./Config/Connectdb.php";
-require_once "./Config/LinkAll.php";
-require_once "./PHPExcel-1.8/PHPExcel.php";
+require_once "../Config/Connectdb.php";
+require_once "../Config/LinkAll.php";
+require_once "../PHPExcel-1.8/PHPExcel.php";
 
 // Sql get product order by count Desc
 $sql_get_product = "SELECT * FROM `tbl_cthoadon` JOIN tbl_sanpham ON tbl_cthoadon.sanpham_id = tbl_sanpham.sanpham_id ORDER BY tbl_cthoadon.soluong DESC LIMIT 20";
