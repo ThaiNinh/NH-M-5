@@ -9,3 +9,4 @@
     $insert_giohang="INSERT INTO `tbl_giohang`( `sanpham_id`, `so_luong_cart`, `nguoidung_id`, `size`) 
     VALUES ('".$sanpham_id."','".$soluong."','".$id_nguoidung"','".$size."')";
     $cart
+?>

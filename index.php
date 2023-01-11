@@ -17,7 +17,7 @@
                 <h3>Giày Nike</h3>
             </div>
             <div class="image col-6">
-                <img src="img/slide/1.png" class="shoe" alt="">
+                <img src="img/1.png" class="shoe" alt="">
 
             </div>
         </div>
@@ -32,7 +32,7 @@
 
             </div>
             <div class="image col-6">
-                <img src="img/slide/2.png" class="shoe" alt="">
+                <img src="img/2.png" class="shoe" alt="">
 
             </div>
         </div>
@@ -47,14 +47,14 @@
 
             </div>
             <div class="image col-6">
-                <img src="img/slide/3.png" class="shoe" alt="">
+                <img src="img/3.png" class="shoe" alt="">
 
             </div>
         </div>
     </div>
 
     <div class="slide-container">
-        <div class="slide jjustify-content-center align-content-center">
+        <div class="slide justify-content-center align-content-center">
             <div class="content col-5">
                 <span>Shoe 4</span>
                 <h3>Shoessss</h3>
@@ -62,7 +62,7 @@
 
             </div>
             <div class="image col-6">
-                <img src="img/slide/4.png" class="shoe" alt="">
+                <img src="img/4.png" class="shoe" alt="">
 
             </div>
         </div>
