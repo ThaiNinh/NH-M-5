@@ -2,7 +2,12 @@
 <?php
 	require("header.php");
     $id_user = $_SESSION['id'];
-echo ($id_user);
+    // require_once "./Config/Connectdb.php";
+// require_once "./Config/LinkAll.php";
+
+// $id_user = $_GET['user'];
+
+
 ?>
 <?php   
     ob_start(); 
@@ -191,7 +196,7 @@ echo ($id_user);
 
                                     </tr>
                                     <tr>
-                                    <td class ="total-price" style="text-align: center;" colspan="7"><a href="cart.php">Chỉnh sửa đơn hàng </td>
+                                    <td class ="total-price" style="text-align: center;" colspan="7"><a href="Cart.php">Chỉnh sửa đơn hàng </td>
                                     </tr>
                         </tbody>
                     </table>

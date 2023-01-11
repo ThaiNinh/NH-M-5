@@ -169,7 +169,7 @@ if(isset($_POST['name'])){
 
 
     <!-- Contact Start -->
-    <div class="container-fluid pt-5">
+    <div class="d-flex justify-content-center mt-5">
         <div class="text-center mb-4">
         </div>
         <div class="row px-xl-5">

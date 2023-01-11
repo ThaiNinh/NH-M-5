@@ -40,7 +40,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
         <link rel="stylesheet" href="./publics/Css/cart_page.css">
-</head>
+        <style>
+            .has-error{
+                color: red;
+            }
+        </style>
+    </head>
 
 <body>
     <div class="container-fluid">
@@ -128,41 +133,27 @@
 
                         </ul>
                         <div class="col-lg-4 col-6 text-left">
+
                             <div class="input-group">
-                                <form name="sform" action="timkiem.php?quanly=timkiem" method="POST">
+                                <form name="sform" action="timkiem.php?quanly=timkiem" method="POST" class="input-group-append">
                                     <input type="text" class="form-control" placeholder="Tìm kiếm sản phẩm..."
                                         name="tukhoa">
-                                    <div class="input-group-append">
+                                   
                                         <span>
                                             <button class="input-group-text bg-transparent text-primary" name="timkiem"
                                                 type="submit" value="tìm kiếm">
 
-                                                <i class="fa fa-search"></i>
+                                                <i class="fa fa-search icon-3x icon-align-center"></i>
                                             </button>
                                         </span>
 
-                                    </div>
+                                   
 
                                 </form>
+
                             </div>
+ 
                         </div>
-
-                        <!-- <div class="col-lg-5 col-7 text-left">
-						
-							<div class="input-group">
-								<form name="sform" action="timkiem.php?quanly=timkiem" method="POST">
-									<input type="text" class="form-control" placeholder="Tìm kiếm sản phẩm..." name="timkiem">
-									<div class="input-group-append">
-									<button class="input-group-text bg-transparent text-primary" name="tukhoa" type="submit" value="tìm kiếm">
-										
-										<i class="fa fa-search"></i>
-									</button>
-									</div>
-								</form>	
-									
-							</div>
-					</div> -->
-
                         <div class="col-4">
                             <a href="<?= check_cart() ?>" class="btn border">
                                 <i class="fas fa-shopping-cart text-primary"></i>

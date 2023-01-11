@@ -2,21 +2,19 @@
 	require("header.php");
 	require("./Config/Connectdb.php");
 
-
 	// Get 8 products
 	$sql_get_products = "SELECT * FROM `tbl_sanpham` LIMIT 8";
 	$data_product = executeQuery($sql_get_products,true) ?: [];
 
 	
 ?>
+
 <section class="s1 row-fluid pb-0" id="s1">
     <div class="slide-container active">
         <div class="slide justify-content-center align-content-center">
             <div class="content col-5 ">
-                <span>Shoe 1</span>
-                <h3>Shoessss</h3>
-                <p>aaaaaaaaaaaa </p>
-
+                <span>Giày Nam</span>
+                <h3>Giày Nike</h3>
             </div>
             <div class="image col-6">
                 <img src="img/slide/1.png" class="shoe" alt="">
@@ -189,7 +187,6 @@
         <!--  -->
     </div>
 </section>
-
 <?php
-require("footer.php");
+	require("footer.php");
 ?>
