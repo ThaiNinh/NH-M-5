@@ -1,5 +1,5 @@
 <?php
-include 'database/dbcon.php';
+	require("header.php");
 
 if(isset($_POST['name'])){
     $name= $_POST['name'];
@@ -22,9 +22,6 @@ if(isset($_POST['name'])){
     }
 ?>
 
-<?php
-	require("header.php");
-?>
 <!-- Page Header Start -->
 <section class="container-fluid bg-secondary">
         <div  class="d-flex flex-column align-items-center justify-content-center" style="min-height: 200px;">
