@@ -101,12 +101,7 @@ if(isset($_POST['name'])){
 							Liên hệ<span class="ui-button-icon-only"></span>
 						</a>				
 					  </li>
-					  <li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="lichsumuahang.php">
-							<i class="fa-solid fa-shopping-cart"></i>
-							Lịch sử mua hàng<span class="ui-button-icon-only"></span>
-						</a>				
-					  </li>
+
 
 					</ul>
 					<div class="col-lg-4 col-6 text-left">
