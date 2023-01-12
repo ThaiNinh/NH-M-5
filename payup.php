@@ -31,12 +31,23 @@
 
             # Thực thi câu lệnh truy vấn
             $giohang = mysqli_query($conn, $sql3);
-            $y = 0 ;
+            $y = 0;
             // echo (mysqli_fetch_array($giohang).length);
             // array = [sp1, sp2, sp3]
             // for (i < array.length) 
 //  for($)
             # Hiển thị ra CSDL mà bạn vừa lấy được
+            // $row2 = mysqli_fetch_array($giohang);
+            // for($i=0;$i<=count($row2);++$i){
+            //     echo (count($row2));
+            //     $row2[$i][$y];
+            //     $row2['thanhtien'] = $row2['so_luong_cart'] * $row2['dongia'];                
+            //     $sql4= "INSERT INTO tbl_cthoadon( hoadon_id, sanpham_id,  soluong, thanhtien,hinhanh) 
+            //     VALUES ('".$row1['max(hoadon_id)']."','".$row2['sanpham_id']."', '".$row2['so_luong_cart']."','".$row2['thanhtien']."','".$row2['hinhanh']."')";
+            // // echo ($sql4);
+            //     $thanh_toan = mysqli_query($conn, $sql4);
+            // }
+
             while ($row2 = mysqli_fetch_array($giohang))
                 {
                     $y++;
@@ -56,7 +67,7 @@
             $sqll="SELECT max(giaohang_id) from tbl_giaohang";
             $max = mysqli_query($conn, $sqll);
             $roww = mysqli_fetch_array($max);
-            echo ($roww['max(giaohang_id)']);
+            // echo ($roww['max(giaohang_id)']);
             $r3 = $roww['max(giaohang_id)'] + 1;
             $sql6="INSERT INTO tbl_giaohang (giaohang_id, hoadon_id, nguoidung_id, hinhthuc_gh) 
             VALUES('".$r3."','".$row1['max(hoadon_id)']."','".$id."', '".$row3['hinhthuc_gh']."')";
@@ -64,17 +75,12 @@
 
 
 //làm tiếp từ đây, soi dữ liệu
-            $sql7 = "SELECT * FROM `tbl_hoadon` AS a JOIN `tbl_thanhtoan` AS b 
-            WHERE a.thanhtoan_id=b.thanhtoan_id";
-            $tt = mysqli_query($conn, $sql7);
-            $row4 = mysqli_fetch_array($tt);
 
             $sql8="INSERT INTO tbl_ctthanhtoan (thanhtoan_id, nguoidung_id, hoadon_id, tinhtrang_tt) 
-            values('".$row4['thanhtoan_id']."','".$id."','".$row1['max(hoadon_id)']."', '0')";
+            values('".$thanhtoan_id."','".$id."','".$row1['max(hoadon_id)']."', '0')";
             $thanhtoandon = mysqli_query($conn, $sql8);
 
           
-
         }
                                         
        // 5. Hiển thị ra thông báo bạn đã thêm mới tin tức thành công và đẩy về trang trang_chu.php

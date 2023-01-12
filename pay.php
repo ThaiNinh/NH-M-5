@@ -250,7 +250,7 @@
                                         $x++;
                                     
                                     ?>
-                                    <div class="ship-method"> 
+                                    <div class="ship-method">  
                                         <div class="custom-group custom-radio">
                                             <input type="radio" class="ship-method-input" id="<?php echo $row['giaohang_id'] ;?>" name="giaohang_id" value="<?php echo $x ;?>" checked ="checked">
                                             <label class="ship-method-label" for="<?php echo $row['giaohang_id'] ;?>"><?php echo $row['hinhthuc_gh'] ;?></label>

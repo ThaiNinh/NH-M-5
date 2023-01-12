@@ -26,9 +26,9 @@
     <div class="slide-container ">
         <div class="slide justify-content-center align-content-center">
             <div class="content col-5">
-                <span>Shoe 2</span>
-                <h3>Shoessss</h3>
-                <p>aaaaaaaaaaa </p>
+                <span>Giày Nữ</span>
+                <h3>Giày Bitis</h3>
+                <p> </p>
 
             </div>
             <div class="image col-6">
@@ -41,9 +41,9 @@
     <div class="slide-container">
         <div class="slide justify-content-center align-content-center">
             <div class="content col-5">
-                <span>Shoe 3</span>
-                <h3>Shoessss</h3>
-                <p>aaaaaaaaaaaaaaaaaaaaaa </p>
+                <span>Giày Trẻ em</span>
+                <h3>Giày Mới</h3>
+                <p> </p>
 
             </div>
             <div class="image col-6">
@@ -56,9 +56,9 @@
     <div class="slide-container">
         <div class="slide justify-content-center align-content-center">
             <div class="content col-5">
-                <span>Shoe 4</span>
-                <h3>Shoessss</h3>
-                <p>aaaaaaaaaaaa </p>
+                <span>Giày Nam</span>
+                <h3>Giày hot</h3>
+                <p> </p>
 
             </div>
             <div class="image col-6">
@@ -160,7 +160,7 @@
     <hr class="line">
     <div>
         <h1 class="text-lg-center font-weight-light m-0 font-italic"
-            style="font-size:3.5rem; color:#D19C97; letter-spacing: 1px;">SẢN PHẨM MỚI</h1>
+            style="font-size:3.5rem; color:#D19C97; letter-spacing: 1px;">SẢN PHẨM</h1>
     </div>
     <div class="row px-xl-5 pt-2 ">
         <!--  -->
