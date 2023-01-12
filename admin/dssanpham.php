@@ -74,3 +74,6 @@ include 'index.php';
                     <a href="themsp.php" class="text-light">Thêm</a>
                 </button>
             </div>
+            <?php
+require_once("footer.php");
+?>

@@ -77,3 +77,6 @@ $sql_loaisp = mysqli_query($conn, $sql);
     </div>
 
 </div>
+<?php
+require_once("footer.php");
+?>

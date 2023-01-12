@@ -1,34 +1,47 @@
 <?php
-	require("header.php");
+require("header.php");
 ?>
 
 <section class="s1 row-fluid pb-0" id="s1">
-<div class="slide-container active">
-	<div class="slide justify-content-center align-content-center">
-		<!-- help -->
-<div class="faqs-w3l py-sm-5 py-4">
-		<div class="container py-xl-4 py-lg-2">
+	<div class="container-fluid row">
+		<div class="col-7">
+			<img src="https://i.pinimg.com/564x/66/cb/32/66cb3267abf6bf1e426067ca477d01a6.jpg" class="img-fluid"
+				with="70%">
+		</div>
+		<div class="col-5 mt-7 " style="text-align: justify;">
+
+			<div class="d-flex align-content-between justify-content-center row "></div>
 			<!-- tittle heading -->
-			<h3 class="tittle-w3l text-center mb-lg-5 mb-sm-4 mb-3">
-				<span>G</span>iới
-				<span>T</span>hiệu
-				<span>V</span>ề
-				<span>L</span>ucky
-				<span>S</span>hoes
-			</h3>
+			<h2 class="m-2 font-monospace font-size-10 font-monospace">
+				Giới thiệu về XU STORE
+			</h2>
 			<!-- //tittle heading -->
 			<!-- help content -->
 
-Hệ thống giày Xustore chuyên thiết kế và kinh doanh các mặt hàng giày dép cho giới trẻ, là cấu nối cho bạn trẻ cả nước tiếp cận với xu hướng thời trang giày trên thế giới.</br>
-"Chúng tôi mang đến sự khác biệt!" - Cùng với xu hướng thời trang của thế giới Hệ thống Xustore đã và đang không ngừng đổi mới để mang đến cho các bạn trẻ các mẫu giày thời trang độc đáo, mới lạ, để tiên phong cho một phong cách thời trang mới, một phong cách biểu tượng cho giới trẻ trên cả nước.</br>
-Vì thế Xustore đang dần trở thành một cái tên quen thuộc với tất cả các bạn trẻ với những phong cách thời trang hoàn toàn mới lạ, khẳng định cá tính của chính mình.<br>
-Sự hài lòng của các bạn chính là mục tiêu phấn đấu của chúng tôi.<br>
-	</div>
-</div>
-</div>
+			<p class="m-2 p-2 font-size-10 font-monospace">
+				★ Chào mừng bạn đến với Xu.store. CHẤT LƯỢNG và GIÁ TRỊ của mội món đồ là thứ chúng tôi quan tâm
+				hàng đầu .
+				Xu.store luôn muốn mang đến sự hài lòng cho quý khách ngay khi đơn hàng kết thúc . Có câu nói
+				rằng "bạn đừng quá quan tâm đến giá cả của một thứ gì đó , mà hãy quan tâm đến giá trị của món
+				đồ đó và dịch vụ bảo trì sau khi mua nó" <br>
+				<i class="m-3 p-4">
+					<ul>
+						<li>CAM KẾT CHỈ BÁN GIÀY CHÍNH HÃNG.
+							Bạn có thể liên hệ của hàng check code thoải mái trước khi mua sản phẩm</li><br>
+						<li>BẢO HÀNH GIÀY 3 THÁNG để bạn yên tâm sử dụng.</li><br>
+						<li>ĐỔI TRẢ TRONG VÒNG 3 NGÀY Đổi trả sản phẩm linh hoạt.</li>
+					</ul>
+				</i>
+
+			</p>
+
+
+
+		</div>
+
+
 </section>
 
 <?php
 require("footer.php");
 ?>
-

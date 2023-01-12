@@ -85,6 +85,7 @@ foreach($data_money as $item => $value){
         <!-- Sidebar Start -->
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-light navbar-light">
+                <a href="http://localhost/nhom5/admin/admin.php?">
                     <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>DASHMIN</h3>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
@@ -103,6 +104,8 @@ foreach($data_money as $item => $value){
 
                     
                     <a href="statistics.php" class="nav-item nav-link "><i class="fa fa-th me-2"></i>Sản phẩm mới </a>
+                    <a href="user.php" class="nav-item nav-link "><i class="fa fa-tachometer-alt me-2"></i>Quản lý người dùng </a>
+
                     <a href="Statement.php" class="nav-item nav-link "><i class="fa fa-tachometer-alt me-2"></i>Báo cáo chi tiết </a>
                     <a href="orderhis.php" class="nav-item nav-link "><i class="far fa-file-alt me-2"></i>Đơn đã thanh toán </a>
 
@@ -165,20 +168,3 @@ foreach($data_money as $item => $value){
 
 
 
-
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/chart/chart.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/tempusdominus/js/moment.min.js"></script>
-    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
-</body>
-
-</html>

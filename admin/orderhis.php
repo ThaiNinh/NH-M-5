@@ -78,3 +78,6 @@ function prev(){
 </script>
 </html>
 
+<?php
+require_once("footer.php");
+?>

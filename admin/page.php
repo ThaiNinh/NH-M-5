@@ -43,11 +43,11 @@ if ($current_page < $totalPages - 1) {
 <?php }
 
 if ($current_page < $totalPages - 3) {
-    $end_page = $totalPages;
+    $end_page = $totalPages; 
     ?>
 
     <button type="button" class="btn btn-primary">
-        <a class="page-item text-light" href="?per_page=<?= $item_per_page ?>&page=<?= $end_page ?>">Last</a>
+        <a class="page-item text-light" href="?per_page=<?= $item_per_page ?>&page=<?=$end_page ?>">Last</a>
 
     </button>
 <?php } ?>

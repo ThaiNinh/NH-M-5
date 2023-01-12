@@ -121,6 +121,7 @@ $data_new_products = executeQuery($sql_get_new_products, true) ?: [];
             </div>
         </div>
     </div>
-</body>
 
-</html>
+<?php
+require_once("footer.php");
+?>
