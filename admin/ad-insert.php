@@ -11,7 +11,7 @@ if(isset($_POST['tenloaisp'])){
     $sql = "INSERT INTO `tbl_loaisp`(`tenloaisp`) VALUES ('$tenloaisp')";
     $query = mysqli_query($conn, $sql);
     if($query){
-        header("location: admin.php");
+        header("location: loaisp.php");
     }
 }
 

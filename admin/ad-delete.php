@@ -12,7 +12,7 @@ if(isset($_GET['id'])){
     $sql ="DELETE FROM `tbl_loaisp` WHERE loaisp_id =$id";
     $query=mysqli_query($conn, $sql);
     if($query){
-        header('location: admin.php');
+        header('location: loaisp.php');
     }
 }
 ?>

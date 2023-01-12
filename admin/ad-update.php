@@ -13,7 +13,7 @@ if(isset($_POST['tenloaisp'])){
     $sql = "UPDATE `tbl_loaisp` SET `tenloaisp`='$tenloaisp' WHERE loaisp_id='$id'";
     $query = mysqli_query($conn, $sql);
     if($query){
-    header("location: admin.php");
+    header("location: loaisp.php");
     }
 }
 
