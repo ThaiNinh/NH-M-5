@@ -7,13 +7,21 @@ include 'index.php';
 <?php
 $sql= "SELECT * FROM tbl_loaisp";
 $sql_loaisp = mysqli_query($conn, $sql);
+$sanpham = mysqli_query($conn, "select * from tbl_sanpham");
+
 if(isset($_POST['submit'])){
+
+    
     $tensp = $_POST['tensp'];
 
-    $anh=$FILES['hinhanh']['name'];
-    $anh_tmp=$FILES['hinhanh']['tmp_name'];
+    if(isset($_FILES['hinhanh'])){
+        $file=$_FILES['hinhanh'];
+        $file_name=$file['name'];
+        move_uploaded_file($file['tmp_name'], '../img/' . $file_name);
 
-    $mota=$_POST['mota'];
+    }
+
+    $mota=$_POST['mota']; 
     $gia=$_POST['dongia'];
     $soluong=$_POST['so_luong'];
     $trangthai=$_POST['trangthaisp'];
@@ -21,10 +29,19 @@ if(isset($_POST['submit'])){
 
 
     $sql = "INSERT INTO `tbl_sanpham`(`sanpham_id`, `tensp`, `hinhanh`, `mota`, `dongia`, `so_luong`, `trangthaisp`, `loaisp_id`, `ngay_tao`)
-     VALUES ('','" . $tensp . "','" . $anh . "','" . $mota . "','" . $gia . "','" . $soluong . "','" . $trangthai . "','" . $loaisp . "',current_timestamp())";
+     VALUES ('','" . $tensp . "','" . $file_name . "','" . $mota . "','" . $gia . "','" . $soluong . "','" . $trangthai . "','" . $loaisp . "',current_timestamp())";
     $query = mysqli_query($conn, $sql);
-    move_uploaded_file($anh_tmp, '../img/' . $anh);
-    header('location: dssanpham.php');
+
+    if($query){
+        // header('location: dssanpham.php');
+        echo "<script>window.alert('Thêm thành công');</script>";
+        echo "<script>window.location.href='dssanpham.php';</script>";
+    }
+    else {
+        echo "lỗi";
+    }
+    
+   
 }
 ?>
 <div class="container-fluid">

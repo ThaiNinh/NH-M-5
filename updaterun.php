@@ -3,7 +3,7 @@ require 'config.php';
 if(isset($_POST['update'])){
     $id = $_SESSION['id'];
     $name = $_POST['name'];
-    $email = $_POST['email'];
+    $email = $_POST['email']; 
     $sdt = $_POST['phone'];
     $bday = $_POST['bday'];
     $diachi = $_POST['diachi'];

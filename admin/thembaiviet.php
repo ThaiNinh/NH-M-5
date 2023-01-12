@@ -12,6 +12,7 @@ if(isset($_POST['tenbaiviet'])){
     $noidung=$_POST['noidung'];
     $hinhanh=$_FILES['hinhanh']['name'];
     $hinhanh_tmp=$_FILES['hinhanh']['tmp_name'];
+    
     $hinhanh=time().'_'.$hinhanh;
     $danhmuc=$_POST['dmtin_id'];
 

@@ -36,7 +36,7 @@ include 'index.php';
                                 <tr>
                                     <td><?php echo $row_baiviet['tenbaiviet']?></td>
                                     <td><?php echo $row_baiviet['tomtat']?></td>
-                                    <td><img src="admin/img/<?=$row_baiviet['anh']?>" ></td>
+                                    <td><img src="../img/<?= $row_baiviet['anh']?>" width="100%" alt=""></td>
                                     <td><?php echo $row_baiviet['tendm']?></td>
                                      <td><?php echo $row_baiviet['ngaydang']?></td>
                                     <td><button type="button" class="btn btn-primary ms-2" name="update"><a href="suabaiviet.php?id=<?php echo $row_baiviet['baiviet_id']?>" class="text-light">Sửa</a></button>

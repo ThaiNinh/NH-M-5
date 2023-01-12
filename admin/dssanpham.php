@@ -53,10 +53,10 @@ include 'index.php';
                                     <td><?php echo $row_sp['ngay_tao']?></td>
                                     <td>
                                     <button type="button" class="btn btn-primary ms-2 mr-2" name="update">
-                                        <a href="suasp.php?id=<php echo $row_sp['sanpham_id']?>" class="text-light">Sửa</a>
+                                        <a href="suasp.php?sanpham_id=<?php echo $row_sp['sanpham_id']?>" class="text-light">Sửa</a>
                                     </button>
                                     <button type="button" class="btn btn-primary mt-2 ms-2 mr-2" name="delete">
-                                        <a href="xoasp.php?id=<php echo $row_sp['sanpham_id']?>" class="text-light">Xóa</a>
+                                        <a href="xoasp.php?id=<?php echo $row_sp['sanpham_id']?>" class="text-light">Xóa</a>
                                     </button>
                                     </td>
                                 </tr>

@@ -12,7 +12,7 @@ if(isset($_POST['tendm'])){
     $tendm = $_POST['tendm'];
     $sql = "UPDATE `tbl_dmtin` SET `tendm`='$tendm' WHERE dmtin_id='$id'";
     $query = mysqli_query($conn, $sql);
-    if($query){
+    if($query){ 
     header("location: lietkedmtin.php");
     }
 }
