@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th1 12, 2023 lúc 08:48 AM
+-- Thời gian đã tạo: Th1 12, 2023 lúc 03:18 PM
 -- Phiên bản máy phục vụ: 10.4.27-MariaDB
 -- Phiên bản PHP: 8.1.12
 
@@ -36,6 +36,16 @@ CREATE TABLE `tbl_baiviet` (
   `anh` varchar(200) NOT NULL,
   `dmtin_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `tbl_baiviet`
+--
+
+INSERT INTO `tbl_baiviet` (`baiviet_id`, `tenbaiviet`, `tomtat`, `noidung_bv`, `ngaydang`, `anh`, `dmtin_id`) VALUES
+(3, 'Giày cho mùa đông', 'aaaaaa', 'aaaaaa', '2023-01-12 20:01:04', '2.jpg', 2),
+(4, 'Giày nổi nhất đêm nay', 'aaaaaa', 'aaaaaaaaa', '2023-01-12 20:02:40', '4.png', 1),
+(5, 'Giày nổi nhất đêm nay', 'Thể hiện sự năng động của bạn', '', '2023-01-12 20:15:18', 'e4d7470d3ca19fedc9764c721bc4f2cd.jpg', 1),
+(6, 'Những chiếc giày mùa đông', 'Thể hiện niềm yêu thích của bạn', '', '2023-01-12 20:15:47', '74d7664f5fd9bad81e090c67848fd68e.jpg', 2);
 
 -- --------------------------------------------------------
 
@@ -109,7 +119,28 @@ INSERT INTO `tbl_cthoadon` (`hoadon_id`, `sanpham_id`, `soluong`, `thanhtien`, `
 (46, 3, 1, 3000000, '1.jpg'),
 (47, 1, 1, 200000, '1.png'),
 (47, 2, 1, 2000000, '1.jpg'),
-(47, 3, 1, 3000000, '1.jpg');
+(47, 3, 1, 3000000, '1.jpg'),
+(48, 1, 1, 200000, '1.png'),
+(49, 2, 1, 2000000, '1.jpg'),
+(50, 1, 1, 200000, '1.png'),
+(51, 3, 1, 3000000, '1.jpg'),
+(52, 3, 1, 3000000, '1.jpg'),
+(54, 2, 1, 2000000, '1.jpg'),
+(55, 2, 1, 2000000, '1.jpg'),
+(56, 2, 1, 2000000, '1.jpg'),
+(57, 2, 1, 2000000, '1.jpg'),
+(58, 2, 1, 2000000, '1.jpg'),
+(59, 2, 1, 2000000, '1.jpg'),
+(60, 2, 1, 2000000, '1.jpg'),
+(61, 1, 1, 200000, '1.png'),
+(62, 2, 1, 2000000, '1.jpg'),
+(63, 1, 1, 200000, '1.png'),
+(64, 1, 1, 200000, '1.png'),
+(65, 3, 1, 3000000, '1.jpg'),
+(66, 3, 1, 3000000, '1.jpg'),
+(67, 1, 1, 200000, '1.png'),
+(67, 2, 1, 2000000, '1.jpg'),
+(68, 3, 1, 3000000, '1.jpg');
 
 -- --------------------------------------------------------
 
@@ -134,9 +165,23 @@ INSERT INTO `tbl_ctthanhtoan` (`thanhtoan_id`, `nguoidung_id`, `hoadon_id`, `tin
 (1, 22, 42, 0),
 (1, 22, 44, 0),
 (1, 22, 45, 0),
+(1, 41, 48, 0),
 (1, 42, 46, 0),
 (1, 42, 47, 0),
-(2, 22, 2, 0);
+(1, 44, 49, 0),
+(1, 44, 50, 0),
+(1, 44, 51, 0),
+(1, 44, 52, 0),
+(1, 44, 53, 0),
+(1, 44, 60, 0),
+(1, 44, 62, 0),
+(1, 44, 64, 0),
+(1, 44, 65, 0),
+(2, 44, 61, 0),
+(2, 44, 63, 0),
+(2, 44, 66, 0),
+(2, 45, 67, 0),
+(2, 45, 68, 0);
 
 -- --------------------------------------------------------
 
@@ -157,11 +202,22 @@ INSERT INTO `tbl_detail_san_pham` (`id_sp`, `id_size`) VALUES
 (1, 1),
 (1, 2),
 (1, 3),
+(2, 1),
 (2, 2),
 (2, 3),
 (3, 1),
 (3, 2),
-(4, 3);
+(3, 3),
+(4, 1),
+(4, 2),
+(5, 1),
+(6, 2),
+(7, 2),
+(8, 1),
+(9, 5),
+(10, 3),
+(11, 5),
+(12, 3);
 
 -- --------------------------------------------------------
 
@@ -192,23 +248,21 @@ CREATE TABLE `tbl_giaohang` (
   `giaohang_id` int(11) NOT NULL,
   `hoadon_id` int(11) NOT NULL,
   `nguoidung_id` int(11) NOT NULL,
-  `loaigh_id` int(11) NOT NULL,
-  `giacuoc` decimal(10,0) NOT NULL
+  `loaigh_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `tbl_giaohang`
 --
 
-INSERT INTO `tbl_giaohang` (`giaohang_id`, `hoadon_id`, `nguoidung_id`, `loaigh_id`, `giacuoc`) VALUES
-(0, 36, 22, 0, '0'),
-(1, 0, 22, 0, '0'),
-(2, 0, 22, 0, '0'),
-(3, 42, 22, 0, '0'),
-(4, 44, 22, 0, '0'),
-(5, 45, 22, 0, '0'),
-(6, 46, 42, 0, '0'),
-(7, 47, 42, 0, '0');
+INSERT INTO `tbl_giaohang` (`giaohang_id`, `hoadon_id`, `nguoidung_id`, `loaigh_id`) VALUES
+(1, 51, 44, 1),
+(2, 52, 44, 2),
+(3, 64, 44, 2),
+(4, 65, 44, 2),
+(5, 66, 44, 2),
+(6, 67, 45, 2),
+(7, 68, 45, 2);
 
 -- --------------------------------------------------------
 
@@ -232,7 +286,8 @@ INSERT INTO `tbl_giohang` (`giohang_id`, `sanpham_id`, `so_luong_cart`, `nguoidu
 (7, 1, 2, 37, 3),
 (8, 1, 2, 38, 3),
 (9, 1, 2, 39, 3),
-(10, 1, 1, 40, 3);
+(10, 1, 1, 40, 3),
+(40, 3, 1, 17, 3);
 
 -- --------------------------------------------------------
 
@@ -243,7 +298,6 @@ INSERT INTO `tbl_giohang` (`giohang_id`, `sanpham_id`, `so_luong_cart`, `nguoidu
 CREATE TABLE `tbl_hoadon` (
   `hoadon_id` int(11) NOT NULL,
   `nguoidung_id` int(11) NOT NULL,
-  `giaohang_id` int(11) NOT NULL,
   `thanhtoan_id` int(11) NOT NULL,
   `ngaynhap` datetime NOT NULL,
   `ten_nn` varchar(200) NOT NULL,
@@ -257,53 +311,21 @@ CREATE TABLE `tbl_hoadon` (
 -- Đang đổ dữ liệu cho bảng `tbl_hoadon`
 --
 
-INSERT INTO `tbl_hoadon` (`hoadon_id`, `nguoidung_id`, `giaohang_id`, `thanhtoan_id`, `ngaynhap`, `ten_nn`, `diachi_nn`, `sdt_nn`, `ghichu`, `tinhtrangdh`) VALUES
-(1, 22, 1, 1, '2023-01-08 06:46:41', 'a', 'aa', '0365123456', '', 0),
-(2, 22, 2, 2, '2023-01-08 06:46:41', 'a', 'aaa', '0323568945', '', 0),
-(3, 18, 2, 1, '2023-01-08 06:52:24', 'mm', '1111', '0365123456', '', 0),
-(4, 0, 2, 2, '2023-01-10 21:49:54', 'a', 'aaa', '0365123456', '', 0),
-(5, 0, 2, 2, '2023-01-10 21:50:09', 'a', 'aaa', '0365123456', '', 0),
-(6, 0, 2, 2, '2023-01-10 21:51:13', 'a', 'aaa', '0365123456', '', 0),
-(7, 0, 2, 2, '2023-01-10 23:32:57', 'a', 'aaa', '0123456789', '', 0),
-(8, 0, 2, 2, '2023-01-11 18:06:17', 'a', 'aaa', '0123456789', '', 0),
-(9, 41, 2, 2, '2023-01-12 00:27:36', 'a', 'aaa', '0365123456', '1111', 0),
-(10, 41, 2, 2, '2023-01-12 00:29:55', 'a', 'aaa', '0365123456', '1111', 0),
-(11, 41, 2, 2, '2023-01-12 00:30:04', 'a', 'aaa', '0365123456', '1111', 0),
-(13, 41, 2, 2, '2023-01-12 00:35:01', 'a', 'aaa', '0365123456', '1111', 0),
-(14, 41, 2, 2, '2023-01-12 00:35:28', 'a', 'aaa', '0365123456', '1111', 0),
-(15, 41, 2, 2, '2023-01-12 00:35:58', 'a', 'aaa', '0365123456', '1111', 0),
-(16, 41, 2, 2, '2023-01-12 00:36:15', 'a', 'aaa', '0365123456', '1111', 0),
-(17, 41, 2, 2, '2023-01-12 00:36:41', 'a', 'aaa', '0365123456', '1111', 0),
-(18, 41, 2, 2, '2023-01-12 00:37:12', 'a', 'aaa', '0365123456', '1111', 0),
-(19, 41, 2, 2, '2023-01-12 00:38:33', 'a', 'aaa', '0365123456', '1111', 0),
-(20, 41, 2, 2, '2023-01-12 00:39:33', 'a', 'aaa', '0365123456', '1111', 0),
-(21, 41, 2, 2, '2023-01-12 00:40:01', 'a', 'aaa', '0365123456', '1111', 0),
-(22, 41, 2, 2, '2023-01-12 00:40:58', 'a', 'aaa', '0365123456', '1111', 0),
-(23, 41, 2, 2, '2023-01-12 00:41:38', 'a', 'aaa', '0365123456', '1111', 0),
-(24, 41, 2, 2, '2023-01-12 00:41:42', 'a', 'aaa', '0365123456', '1111', 0),
-(25, 41, 2, 2, '2023-01-12 00:42:29', 'a', 'aaa', '0365123456', '1111', 0),
-(26, 41, 2, 2, '2023-01-12 00:44:23', 'a', 'aaa', '0365123456', '1111', 0),
-(27, 41, 2, 2, '2023-01-12 00:47:12', 'a', 'aaa', '0365123456', '1111', 0),
-(28, 41, 2, 2, '2023-01-12 00:47:32', 'a', 'aaa', '0365123456', '1111', 0),
-(29, 41, 2, 2, '2023-01-12 00:47:35', 'a', 'aaa', '0365123456', '1111', 0),
-(30, 41, 2, 2, '2023-01-12 00:47:53', 'a', 'aaa', '0365123456', '1111', 0),
-(31, 41, 2, 2, '2023-01-12 00:49:52', 'a', 'aaa', '0365123456', '1111', 0),
-(32, 41, 2, 2, '2023-01-12 00:53:18', 'a', 'aaa', '0365123456', '1111', 0),
-(33, 41, 2, 2, '2023-01-12 00:53:25', 'a', 'aaa', '0365123456', '1111', 0),
-(34, 41, 2, 2, '2023-01-12 01:27:44', 'a', 'aaa', '0365123456', '1111', 0),
-(35, 41, 2, 2, '2023-01-12 01:28:26', 'a', 'aaa', '0365123456', '1111', 0),
-(36, 41, 2, 2, '2023-01-12 01:33:46', 'a', 'aaa', '0365123456', '1111', 0),
-(37, 42, 2, 2, '2023-01-12 01:36:57', 'a', 'aaa', '0123456789', 'ád', 0),
-(38, 42, 2, 2, '2023-01-12 01:41:10', 'a', 'aaa', '0123456789', 'ád', 0),
-(39, 42, 2, 2, '2023-01-12 01:50:57', 'a', 'aaa', '0123456789', 'ád', 0),
-(40, 42, 2, 2, '2023-01-12 01:52:57', 'a', 'aaa', '0123456789', 'ád', 0),
-(41, 42, 2, 2, '2023-01-12 01:58:27', 'a', 'aaa', '0123456789', 'ád', 0),
-(42, 42, 2, 2, '2023-01-12 01:58:53', 'a', 'aaa', '0123456789', 'ád', 0),
-(43, 42, 2, 2, '2023-01-12 02:00:13', '1', '1', '0123456789', '2w2', 0),
-(44, 42, 2, 2, '2023-01-12 02:00:50', '1', '1', '0123456789', '2w2', 0),
-(45, 42, 5, 2, '2023-01-12 02:01:30', 'a', 'aaa', '0123456789', '', 0),
-(46, 42, 6, 2, '2023-01-12 02:04:48', 'a', 'aaa', '0365123456', '', 0),
-(47, 42, 7, 2, '2023-01-12 02:25:26', 'a', 'aaa', '0123456789', '', 0);
+INSERT INTO `tbl_hoadon` (`hoadon_id`, `nguoidung_id`, `thanhtoan_id`, `ngaynhap`, `ten_nn`, `diachi_nn`, `sdt_nn`, `ghichu`, `tinhtrangdh`) VALUES
+(55, 44, 2, '2023-01-12 17:54:40', 'a', 'aaa', '0123456789', 'á', 0),
+(56, 44, 2, '2023-01-12 17:55:10', 'a', 'aaa', '0123456789', 'á', 0),
+(57, 44, 2, '2023-01-12 17:55:49', 'a', 'aaa', '0123456789', 'á', 0),
+(58, 44, 2, '2023-01-12 17:56:33', 'a', 'aaa', '0123456789', 'á', 0),
+(59, 44, 2, '2023-01-12 17:56:51', 'a', 'aaa', '0123456789', 'á', 0),
+(60, 44, 2, '2023-01-12 18:09:51', 'a', 'aaa', '0123456789', 'y', 0),
+(61, 44, 2, '2023-01-12 18:29:52', 'a', 'aaa', '0123456789', 'sd', 0),
+(62, 44, 1, '2023-01-12 18:46:43', 'a', 'q', '0123456789', 'q', 0),
+(63, 44, 2, '2023-01-12 19:27:00', 'a', 'aaa', '0123456789', 'df', 0),
+(64, 44, 1, '2023-01-12 19:30:07', 'a', 'a', '0123456789', 'sè', 0),
+(65, 44, 1, '2023-01-12 19:30:58', 'sdf', 'd', 'd', 'dsf', 0),
+(66, 44, 2, '2023-01-12 19:35:17', 'q', 'aaa', '0123456789', '', 0),
+(67, 45, 2, '2023-01-12 20:51:18', 'a', 'd', '0123456789', 'ưqwqw', 0),
+(68, 45, 2, '2023-01-12 20:54:35', 'á', 'd', '0123456789', 'sá', 0);
 
 -- --------------------------------------------------------
 
@@ -326,7 +348,7 @@ CREATE TABLE `tbl_lienhe` (
 
 CREATE TABLE `tbl_loaigh` (
   `loaigh_id` int(11) NOT NULL,
-  `ht_giaohang` varchar(200) NOT NULL,
+  `hinhthuc_gh` varchar(200) NOT NULL,
   `giacuoc` decimal(10,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -334,7 +356,7 @@ CREATE TABLE `tbl_loaigh` (
 -- Đang đổ dữ liệu cho bảng `tbl_loaigh`
 --
 
-INSERT INTO `tbl_loaigh` (`loaigh_id`, `ht_giaohang`, `giacuoc`) VALUES
+INSERT INTO `tbl_loaigh` (`loaigh_id`, `hinhthuc_gh`, `giacuoc`) VALUES
 (1, 'Nhanh', '50000'),
 (2, 'Tiết kiệm', '20000');
 
@@ -387,7 +409,8 @@ INSERT INTO `tbl_nguoidung` (`nguoidung_id`, `ten_nd`, `sdt`, `diachi`, `email`,
 (41, 'aaaa', '0395410715', 'aaaaaaa', 'nimtn88@gmail.com', 'c4ca4238a0b923820dcc509a6f75849b', '2222-02-22', 1),
 (42, 'r', '1111111', 'qq', 'nptninh@gmail.com', 'c4ca4238a0b923820dcc509a6f75849b', '1111-11-11', 1),
 (43, 'y', '1', '1', 'nimtn88@gmail.com', 'c4ca4238a0b923820dcc509a6f75849b', '1111-11-11', 1),
-(44, 'n', '1111111', 'aaaaaaa', 'nimtn88@gmail.com', 'c4ca4238a0b923820dcc509a6f75849b', '1111-11-11', 1);
+(44, 'n', '1111111', 'aaaaaaa', 'nimtn88@gmail.com', 'c4ca4238a0b923820dcc509a6f75849b', '1111-11-11', 1),
+(45, 'ok', '0395410715', '3', 'nimtn88@gmail.com', 'eccbc87e4b5ce2fe28308fd9f2a7baf3', '2222-02-22', 1);
 
 -- --------------------------------------------------------
 
@@ -627,13 +650,13 @@ ALTER TABLE `tbl_thanhtoan`
 -- AUTO_INCREMENT cho bảng `tbl_baiviet`
 --
 ALTER TABLE `tbl_baiviet`
-  MODIFY `baiviet_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `baiviet_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_cthoadon`
 --
 ALTER TABLE `tbl_cthoadon`
-  MODIFY `hoadon_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `hoadon_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_dmtin`
@@ -642,16 +665,22 @@ ALTER TABLE `tbl_dmtin`
   MODIFY `dmtin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT cho bảng `tbl_giaohang`
+--
+ALTER TABLE `tbl_giaohang`
+  MODIFY `giaohang_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT cho bảng `tbl_giohang`
 --
 ALTER TABLE `tbl_giohang`
-  MODIFY `giohang_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `giohang_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_hoadon`
 --
 ALTER TABLE `tbl_hoadon`
-  MODIFY `hoadon_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `hoadon_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_loaigh`
@@ -669,7 +698,7 @@ ALTER TABLE `tbl_loaisp`
 -- AUTO_INCREMENT cho bảng `tbl_nguoidung`
 --
 ALTER TABLE `tbl_nguoidung`
-  MODIFY `nguoidung_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `nguoidung_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_sanpham`

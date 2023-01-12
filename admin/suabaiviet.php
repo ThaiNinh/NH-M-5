@@ -11,14 +11,16 @@ if(isset($_POST['tenbaiviet'])){
     $tenbaiviet=$_POST['tenbaiviet'];
     $tomtat=$_POST['tomtat'];
     $noidung=$_POST['noidung'];
-    $hinhanh=$_FILES['hinhanh']['name'];
-    $hinhanh_tmp=$_FILES['hinhanh']['tmp_name'];
-    $hinhanh=time().'_'.$hinhanh;
+    if(isset($_FILES['anh'])){
+        $file=$_FILES['anh'];
+        $file_name=$file['name'];
+        move_uploaded_file($file['tmp_name'], '../img/' . $file_name);
+    }
     $danhmuc=$_POST['dmtin_id'];
 
-    $sql = "UPDATE `tbl_baiviet` SET`tenbaiviet`='$tenbaiviet',`tomtat`='$tomtat',`noidung_bv`='$noidung',`anh`='$hinhanh',`dmtin_id`='$danhmuc',`ngaydang` =current_timestamp() where baiviet_id='$id'";
+    $sql = "UPDATE `tbl_baiviet` SET `tenbaiviet`='$tenbaiviet',`tomtat`='$tomtat',`noidung_bv`='$noidung',`anh`='$file_name',`dmtin_id`='$danhmuc',`ngaydang` =current_timestamp() where baiviet_id='$id'";
     $query = mysqli_query($conn, $sql);
-    move_uploaded_file($hinhanh_tmp, 'img/'.$hinhanh);
+
     if($query){
         header("location: lietkebaiviet.php");
     }
@@ -78,7 +80,7 @@ if(isset($_POST['tenbaiviet'])){
         </tr>
         <tr>
             <td>Hình ảnh:</td>
-           <td><input type="file" class="bg-light text-center rounded p-4" placeholder="Hình ảnh" name="hinhanh"></td>
+           <td><input type="file" class="bg-light text-center rounded p-4" placeholder="Hình ảnh" name="anh"></td>
         </tr>
         <tr>
             <td>Danh mục bài viết</td>

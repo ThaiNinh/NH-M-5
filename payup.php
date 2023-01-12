@@ -9,7 +9,8 @@
             include("database/dbcon.php");
         // 2. Lấy được ra các dữ liệu từ trang thanhtoan.php chuyển sang
         $id= $_SESSION['id'];
-        $giaohang_id = $_POST['giaohang_id'];
+        // $giaohang_id = $_POST['giaohang_id'];
+        $loaigiaohang_id = $_POST['loaigh_id'];
         $thanhtoan_id = $_POST['thanhtoan_id'];
         $ten = $_POST['txtHovaten'];
         $sodienthoai = $_POST['txtSodienthoai'];
@@ -17,8 +18,8 @@
         $ghichu = $_POST['txtGhichu'];
 
 // hóa đơn 
-        $sql1 = "INSERT INTO tbl_hoadon (hoadon_id, nguoidung_id, giaohang_id, thanhtoan_id, ngaynhap, ten_nn, diachi_nn, sdt_nn, ghichu, tinhtrangdh) 
-        VALUES ('','".$id."','".$giaohang_id."','".$thanhtoan_id."',current_timestamp(),'".$ten."', '".$diachi."','".$sodienthoai."','".$ghichu."','0')";
+        $sql1 = "INSERT INTO tbl_hoadon (hoadon_id, nguoidung_id, thanhtoan_id, ngaynhap, ten_nn, diachi_nn, sdt_nn, ghichu, tinhtrangdh) 
+        VALUES ('','".$id."','".$thanhtoan_id."',current_timestamp(),'".$ten."', '".$diachi."','".$sodienthoai."','".$ghichu."','0')";
         $thanh_toan = mysqli_query($conn, $sql1);
         
         if($thanh_toan){
@@ -58,19 +59,21 @@
                     $thanh_toan = mysqli_query($conn, $sql4);
                 }
 
-                //sai
-            $sql5 = "SELECT * FROM tbl_hoadon join tbl_giaohang 
-            WHERE tbl_hoadon.giaohang_id=tbl_giaohang.giaohang_id";
-            $giaohang = mysqli_query($conn, $sql5);
-            $row3 = mysqli_fetch_array($giaohang);
+              
+            // $sql5 = "SELECT * FROM tbl_hoadon join tbl_giaohang 
+            // WHERE tbl_hoadon.giaohang_id=tbl_giaohang.giaohang_id";
+            // $giaohang = mysqli_query($conn, $sql5);
+            // $row3 = mysqli_fetch_array($giaohang);
 
-            $sqll="SELECT max(giaohang_id) from tbl_giaohang";
-            $max = mysqli_query($conn, $sqll);
-            $roww = mysqli_fetch_array($max);
-            // echo ($roww['max(giaohang_id)']);
-            $r3 = $roww['max(giaohang_id)'] + 1;
-            $sql6="INSERT INTO tbl_giaohang (giaohang_id, hoadon_id, nguoidung_id, hinhthuc_gh) 
-            VALUES('".$r3."','".$row1['max(hoadon_id)']."','".$id."', '".$row3['hinhthuc_gh']."')";
+            // $sqll="SELECT max(giaohang_id) from tbl_giaohang";
+            // $max = mysqli_query($conn, $sqll);
+            // $roww = mysqli_fetch_array($max);
+            // // echo ($roww['max(giaohang_id)']);
+            // $r3 = $roww['max(giaohang_id)'] + 1;
+
+            $sql5 = "SELECT * FROM ";
+            $sql6="INSERT INTO tbl_giaohang (giaohang_id, hoadon_id, nguoidung_id, loaigh_id) 
+            VALUES('','".$row1['max(hoadon_id)']."','".$id."', '".$loaigiaohang_id."')";
             $van_chuyen = mysqli_query($conn, $sql6);
 
 
@@ -95,7 +98,7 @@
              <script type='text/javascript'>
                   window.location.href='index.php';
              </script>";     
-        die($message);
+
         ?> 
     </body>
 </html>

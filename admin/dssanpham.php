@@ -21,7 +21,7 @@ include 'index.php';
                                     <th scope="col">Loại sản phẩm</th>
                                     <th scope="col">Ngày tạo</th>
                                 </tr>
-                            </thead>
+                            </thead> 
                             <tbody>
                                 <?php
                                 // var_dump($_GET);exit;

@@ -1,12 +1,12 @@
 <?php
-	require("header.php");
-	require("./Config/Connectdb.php");
+require("header.php");
+require("./Config/Connectdb.php");
 
-	// Get 8 products
-	$sql_get_products = "SELECT * FROM `tbl_sanpham` LIMIT 8";
-	$data_product = executeQuery($sql_get_products,true) ?: [];
+// Get 8 products
+$sql_get_products = "SELECT * FROM `tbl_sanpham` LIMIT 8";
+$data_product = executeQuery($sql_get_products, true) ?: [];
 
-	
+
 ?>
 
 <section class="s1 row-fluid pb-0" id="s1">
@@ -110,47 +110,49 @@
 </section>
 
 <section id="tintuc" class="m-0">
-    <div class="row">
-        <div class="col-12 col-xl-6">
+    <div class="row d-flex justify-content-center">
+        <div class="col-12 col-xl-6" style="padding-left: 88px;">
             <div class="card-img">
-                <a href="">
-                    <img class="img-fluid" src="https://i.pinimg.com/564x/74/d7/66/74d7664f5fd9bad81e090c67848fd68e.jpg"
-                        alt="">
-                </a>
-            </div>
-            <div class="card-body">
-                <a class="card-title" href="" style="font-family: futura-pt,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
-				text-align: left; font-weight: 600; font-size: 20px; margin-top: 7px; color: #000;text-decoration:none">Xu hướng
-                    mới: Những chiếc giày mùa đông</a>
-                <p class="card-text" style="font-family: futura-pt,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
-				text-align: left; font-size: 16px;">
-                    <a class="" href="" style="text-decoration:none; color: #000">
-                        Thể hiện sự năng động của bạn
-                    </a>
-                </p>
-                <a class="card-link" href="" style="font-family: futura-pt,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
-				text-align: left; font-weight: 600;text-decoration-line:underline"> SHOP NOW</a>
-            </div>
-        </div>
-        <div class="col-12 col-xl-6">
-            <div class="card-img">
-                <a href="">
+                <a href="baiviet.php?id=5">
                     <img class="img-fluid" src="https://i.pinimg.com/564x/e4/d7/47/e4d7470d3ca19fedc9764c721bc4f2cd.jpg"
                         alt="">
                 </a>
             </div>
             <div class="card-body">
-                <a class="card-title" href="" style="font-family: futura-pt,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
-				text-align: left; font-weight: 600; font-size: 20px; margin-top: 7px; color: #000;text-decoration:none">Xu hướng
-                    mới: Những chiếc giày mùa đông</a>
+                <a class="card-title" href="baiviet.php?id=5"
+                    style="font-family: futura-pt,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+                text-align: left; font-weight: 600; font-size: 20px; margin-top: 7px; color: #000;text-decoration:none">Xu hướng
+                    mới: Giày nổi nhất đêm nay</a>
                 <p class="card-text" style="font-family: futura-pt,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
-				text-align: left; font-size: 16px;">
-                    <a class="" href="" style="text-decoration:none; color: #000">
+                text-align: left; font-size: 16px;">
+                    <a class="" href="baiviet.php?id=5" style="text-decoration:none; color: #000">
                         Thể hiện sự năng động của bạn
                     </a>
                 </p>
-                <a class="card-link" href="" style="font-family: futura-pt,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
-				text-align: left; font-weight: 600;text-decoration-line:underline"> SHOP NOW</a>
+                <a class="card-link" href="shop.php" style="font-family: futura-pt,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+                text-align: left; font-weight: 600;text-decoration-line:underline"> SHOP NOW</a>
+            </div>
+        </div>
+        <div class="col-12 col-xl-6 " style="padding-left: 138px;">
+            <div class="card-img">
+                <a href="baiviet.php?id=6">
+                    <img class="img-fluid" src="https://i.pinimg.com/564x/74/d7/66/74d7664f5fd9bad81e090c67848fd68e.jpg"
+                        alt="">
+                </a>
+            </div>
+            <div class="card-body">
+                <a class="card-title" href="baiviet.php?id=6"
+                    style="font-family: futura-pt,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+                text-align: left; font-weight: 600; font-size: 20px; margin-top: 7px; color: #000;text-decoration:none">Xu hướng
+                    mới: Những chiếc giày mùa đông</a>
+                <p class="card-text" style="font-family: futura-pt,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+                text-align: left; font-size: 16px;">
+                    <a class="" href="baiviet.php?id=6" style="text-decoration:none; color: #000">
+                        Thể hiện sự năng động của bạn
+                    </a>
+                </p>
+                <a class="card-link" href="shop.php" style="font-family: futura-pt,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+                text-align: left; font-weight: 600;text-decoration-line:underline"> SHOP NOW</a>
             </div>
         </div>
 
@@ -164,29 +166,31 @@
     </div>
     <div class="row px-xl-5 pt-2 ">
         <!--  -->
-        <?php foreach ($data_product as $key => $value):?>
-        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-            <div class="card product-item border-0 mb-4">
-                <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                    <img class="img-fluid w-100" src="./img/<?= $value['hinhanh']?>" alt="">
-                </div>
-                <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                    <h6 class="text-truncate mb-3"><?= $value['tensp']?></h6>
-                    <div class="d-flex justify-content-center">
-                        <h6><?= product_price($value['dongia'])?></h6>
+        <?php foreach ($data_product as $key => $value): ?>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="card product-item border-0 mb-4">
+                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                        <img class="img-fluid w-100" src="./img/<?= $value['hinhanh'] ?>" alt="">
+                    </div>
+                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                        <h6 class="text-truncate mb-3">
+                            <?= $value['tensp'] ?>
+                        </h6>
+                        <div class="d-flex justify-content-center">
+                            <h6><?= product_price($value['dongia']) ?></h6>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-center bg-light border">
+                        <a href="./Detail_product.php?id=<?= $value['sanpham_id'] ?>" class="btn btn-sm text-dark p-0"><i
+                                class="fas fa-eye text-primary mr-1"></i>Chi tiết</a>
+
                     </div>
                 </div>
-                <div class="card-footer d-flex justify-content-center bg-light border">
-                    <a href="./Detail_product.php?id=<?= $value['sanpham_id']?>" class="btn btn-sm text-dark p-0"><i
-                            class="fas fa-eye text-primary mr-1"></i>Chi tiết</a>
-                   
-                </div>
             </div>
-        </div>
         <?php endforeach ?>
         <!--  -->
     </div>
 </section>
 <?php
-	require("footer.php");
+require("footer.php");
 ?>

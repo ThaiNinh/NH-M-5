@@ -41,9 +41,11 @@
         <td><?php echo $row['diachi'] ?></td>
         <td><?php echo $row['email'] ?></td>
         <td><?php echo $row['sdt'] ?></td>
-		<td>
-			<a href="xemdonhang.php?hoadon_id=<?php echo $row['hoadon_id']?>"> Xem đơn hàng </a>
-			<!--  echo $row['giohang_id'] -->
+		
+        <td>
+			<a class="btn btn-info" href="xemdonhang.php?hoadon_id=<?php echo $row['hoadon_id']?>"> Xem đơn hàng </a>
+			<a class="btn btn-danger" href="xoahis.php?hoadon_id=<?php echo $row['hoadon_id']?>"> Xóa </a>
+		
 		</td>
         
     </tr>

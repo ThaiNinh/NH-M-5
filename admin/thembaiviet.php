@@ -10,15 +10,17 @@ if(isset($_POST['tenbaiviet'])){
     $tenbaiviet=$_POST['tenbaiviet'];
     $tomtat=$_POST['tomtat'];
     $noidung=$_POST['noidung'];
-    $hinhanh=$_FILES['hinhanh']['name'];
-    $hinhanh_tmp=$_FILES['hinhanh']['tmp_name'];
-    
-    $hinhanh=time().'_'.$hinhanh;
-    $danhmuc=$_POST['dmtin_id'];
 
-    $sql = "INSERT INTO `tbl_baiviet`(`tenbaiviet`,`tomtat`,`noidung_bv`,`anh`,`dmtin_id`,`ngaydang`) VALUES ('$tenbaiviet','$tomtat','$noidung','$hinhanh','$danhmuc',current_timestamp())";
+    if(isset($_FILES['anh'])){
+        $file=$_FILES['anh'];
+        $file_name=$file['name'];
+        move_uploaded_file($file['tmp_name'], '../img/' . $file_name);
+    }
+
+    $danhmuc=$_POST['dmtin_id'];
+    $sql = "INSERT INTO `tbl_baiviet`(`tenbaiviet`,`tomtat`,`noidung_bv`,`anh`,`dmtin_id`,`ngaydang`) VALUES ('$tenbaiviet','$tomtat','$noidung','$file_name','$danhmuc',current_timestamp())";
     $query = mysqli_query($conn, $sql);
-    move_uploaded_file($hinhanh_tmp, 'admin/img/'.$hinhanh);
+   
     if($query){
         header("location: lietkebaiviet.php");
     }
@@ -78,7 +80,7 @@ if(isset($_POST['tenbaiviet'])){
         </tr>
         <tr>
             <td>Hình ảnh:</td>
-           <td><input type="file" class="bg-light text-center rounded p-4" placeholder="Hình ảnh" name="hinhanh"></td>
+           <td><input type="file" class="bg-light text-center rounded p-4" placeholder="Hình ảnh" name="anh"></td>
         </tr>
         <tr>
             <td>Danh mục bài viết</td>
